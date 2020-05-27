@@ -1,0 +1,3 @@
+rootProject.name='HuaweiMapLayout'
+include ':app'
+include ':hmsgmsmaplayout'
