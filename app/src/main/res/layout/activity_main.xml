@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +8,50 @@
 
     <fragment android:id="@+id/id_framelayout_map"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         class="com.huawei.fast.huawei.map.hmsgmsmaplayout.MultipleSupportMapFragment"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <fragment android:id="@+id/id_framelayout_map"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--           />-->
+<!--        <FrameLayout android:id="@+id/id_framelayout_map"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
+
+<!--    <fragment android:id="@+id/id_framelayout_map"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        class="com.huawei.hms.maps.SupportMapFragment"/>-->
+
+<!--        <fragment android:id="@+id/id_framelayout_map"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            class="com.google.android.gms.maps.SupportMapFragment"/>-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_alignParentBottom="true">-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="HuaweiMap"-->
+<!--            android:onClick="loadHuaweiMap"/>-->
+
+<!--        <Button-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="100dp"-->
+<!--            android:text="GoogleMap"-->
+<!--            android:onClick="loadGoogleMap"/>-->
+
+
+<!--    </LinearLayout>-->
+
+</RelativeLayout>
