@@ -1,5 +1,7 @@
 package com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper;
 
+import androidx.annotation.NonNull;
+
 public class Cap {
     com.google.android.gms.maps.model.Cap gCap;
     com.huawei.hms.maps.model.Cap hCap;

@@ -129,4 +129,9 @@ public class Marker {
         if (google != null) google.setVisible(value);
         if (huawei != null) huawei.setVisible(value);
     }
+
+    public void showInfoWindow(){
+        if (google != null) google.showInfoWindow();
+        else if (huawei != null) huawei.showInfoWindow();;
+    }
 }

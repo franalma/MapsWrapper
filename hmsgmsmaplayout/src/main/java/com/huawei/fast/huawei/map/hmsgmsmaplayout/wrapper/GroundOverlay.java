@@ -17,7 +17,7 @@ public class GroundOverlay {
         if (huawei != null) huawei.setTag(tag);
     }
 
-    public Object getTag(Object tag){
+    public Object getTag(){
         Object result = null;
         if (google != null) result = google.getTag();
         if (huawei != null) result = huawei.getTag();

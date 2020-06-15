@@ -2,6 +2,9 @@ package com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Polygon {
     com.google.android.gms.maps.model.Polygon google;
     com.huawei.hms.maps.model.Polygon huawei;
@@ -41,6 +44,28 @@ public class Polygon {
         if (huawei != null) huawei.setStrokeJointType(value);
     }
 
+    public void setStrokePattern(List<PatternItem> values) {
+        if (values != null){
+            if (google != null) {
+                List<com.google.android.gms.maps.model.PatternItem> gValues = new ArrayList<>();
+                for (PatternItem item: values){
+                    gValues.add(item.gPattern);
+                }
+                google.setStrokePattern(gValues);
+            }
+            if (huawei != null){
+                List<com.huawei.hms.maps.model.PatternItem> hValues = new ArrayList<>();
+                for (PatternItem item: values){
+                    hValues.add(item.hPattern);
+                }
+                huawei.setStrokePattern(hValues);
+            }
+        }
+
+    }
+
+
+
     public int getStrokeJointType() {
         int result = 0;
         if (google != null) return google.getStrokeJointType();
@@ -70,6 +95,11 @@ public class Polygon {
         if (google != null) return google.getTag();
         if (huawei != null) return huawei.getTag();
         return null;
+    }
+
+    public void setClickable(boolean value){
+        if (google != null) google.setClickable(value);
+        if (huawei != null) huawei.setClickable(value);
     }
 
 }

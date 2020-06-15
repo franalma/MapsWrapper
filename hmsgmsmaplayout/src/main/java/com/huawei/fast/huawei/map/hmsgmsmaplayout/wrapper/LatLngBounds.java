@@ -22,7 +22,7 @@ public class LatLngBounds {
    public static class Builder{
         private com.google.android.gms.maps.model.LatLngBounds.Builder google;
         private com.huawei.hms.maps.model.LatLngBounds.Builder huawei;
-        Builder(){
+        public Builder(){
             google = new com.google.android.gms.maps.model.LatLngBounds.Builder();
             huawei = new com.huawei.hms.maps.model.LatLngBounds.Builder();
         }

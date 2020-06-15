@@ -1,12 +1,7 @@
 package com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper;
 
-import android.os.RemoteException;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.google.android.gms.maps.model.RuntimeRemoteException;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +18,15 @@ public class Polyline {
     }
 
     public Polyline setColor(int value){
-        this.google.setColor(value);
-        this.huawei.setColor(value);
+        if (google != null)  this.google.setColor(value);
+        if (huawei != null) this.huawei.setColor(value);
         return this;
+    }
+
+    public int getColor(){
+        if (google != null) return google.getColor();
+        if (huawei != null) return huawei.getColor();
+        return -1;
     }
 
     public void setStartCap(@NonNull Cap value){
@@ -62,14 +63,17 @@ public class Polyline {
     }
 
     public void setPattern(@Nullable List<PatternItem> value) {
-        List<com.huawei.hms.maps.model.PatternItem> hList =  new ArrayList<>();
-        List<com.google.android.gms.maps.model.PatternItem>gList = new ArrayList<>();
-        for (PatternItem item:value) {
-            hList.add(item.hPattern);
-            gList.add(item.gPattern);
+        if (value != null){
+            List<com.huawei.hms.maps.model.PatternItem> hList =  new ArrayList<>();
+            List<com.google.android.gms.maps.model.PatternItem>gList = new ArrayList<>();
+            for (PatternItem item:value) {
+                hList.add(item.hPattern);
+                gList.add(item.gPattern);
+            }
+            if (google != null) google.setPattern(gList);
+            if (huawei != null) huawei.setPattern(hList);
         }
-        if (google != null) google.setPattern(gList);
-        if (huawei != null) huawei.setPattern(hList);
+
     }
 
     public List<PatternItem> getPatternItem(){
@@ -122,6 +126,11 @@ public class Polyline {
         if (google != null) return google.getTag();
         if (huawei != null) return huawei.getTag();
         return null;
+    }
+
+    public void setClickable(boolean value){
+        if (google != null) google.setClickable(value);
+        if (huawei != null) huawei.setClickable(value);
     }
 
 

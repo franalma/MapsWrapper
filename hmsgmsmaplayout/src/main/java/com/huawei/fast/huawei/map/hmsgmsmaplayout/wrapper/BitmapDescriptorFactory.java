@@ -1,6 +1,6 @@
 package com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper;
 
-import android.util.Log;
+import android.graphics.Bitmap;
 
 public class BitmapDescriptorFactory {
     public final static float  HUE_RED = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED;
@@ -44,5 +44,21 @@ public class BitmapDescriptorFactory {
             e.printStackTrace();
         }
         return new BitmapDescriptor(huawei,google);
+    }
+
+    public static BitmapDescriptor fromBitmap(Bitmap bitmap){
+        com.google.android.gms.maps.model.BitmapDescriptor google = null;
+        com.huawei.hms.maps.model.BitmapDescriptor huawei = null;
+        try{
+            google = com.google.android.gms.maps.model.BitmapDescriptorFactory.fromBitmap(bitmap);
+        }catch(Exception e){
+
+        }
+        try{
+            huawei = com.huawei.hms.maps.model.BitmapDescriptorFactory.fromBitmap(bitmap);
+        }catch(Exception e){
+
+        }
+        return new BitmapDescriptor(huawei, google);
     }
 }

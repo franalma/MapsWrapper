@@ -239,8 +239,8 @@ public class ExtendedMap {
 
 
     public UiSettings getUiSettings() {
-        if (isHuawei()) return new UiSettings(huaweiMap);
         if (isGoogle()) return new UiSettings(googleMap);
+        if (isHuawei()) return new UiSettings(huaweiMap);
         return null;
     }
 

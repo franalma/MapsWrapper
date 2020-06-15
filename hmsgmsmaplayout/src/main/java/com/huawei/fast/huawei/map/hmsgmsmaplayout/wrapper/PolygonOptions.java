@@ -39,10 +39,12 @@ public class PolygonOptions {
 
         final List<com.huawei.hms.maps.model.LatLng> hList = new ArrayList<>();
         final List<com.google.android.gms.maps.model.LatLng> gList = new ArrayList<>();
-
-        while (values.iterator().hasNext()){
-            hList.add(values.iterator().next().huawei);
-            gList.add(values.iterator().next().google);
+        Iterator<LatLng> iterator = values.iterator();
+        while (iterator.hasNext()){
+            LatLng item = iterator.next();
+            System.out.println("----->item: "+item.hashCode());
+            hList.add(item.huawei);
+            gList.add(item.google);
         }
         Iterable<com.huawei.hms.maps.model.LatLng>hIterator = new Iterable<com.huawei.hms.maps.model.LatLng>() {
             @NonNull
@@ -91,10 +93,11 @@ public class PolygonOptions {
     public PolygonOptions addHole(Iterable<LatLng> values){
         final List<com.huawei.hms.maps.model.LatLng> hList = new ArrayList<>();
         final List<com.google.android.gms.maps.model.LatLng> gList = new ArrayList<>();
-
-        while (values.iterator().hasNext()){
-            hList.add(values.iterator().next().huawei);
-            gList.add(values.iterator().next().google);
+        Iterator<LatLng> iterator = values.iterator();
+        while (iterator.hasNext()){
+            LatLng item = iterator.next();
+            hList.add(item.huawei);
+            gList.add(item.google);
         }
         Iterable<com.huawei.hms.maps.model.LatLng>hIterator = new Iterable<com.huawei.hms.maps.model.LatLng>() {
             @NonNull

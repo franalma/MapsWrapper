@@ -3,6 +3,7 @@
     package="com.huawei.fast.huawei.map.layout">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,44 +11,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".GroundOverlayDemoActivity">
+        <activity android:name=".TagsDemoActivity">
         </activity>
-        <activity android:name=".LayersDemoActivity">
+        <activity android:name=".GeocodingActivity" />
+        <activity android:name=".UiSettingsDemoActivity" >
         </activity>
-        <activity android:name=".IndoorDemoActivity">
-        </activity>
-        <activity android:name=".CameraClampingDemoActivity"/>
-        <activity android:name=".CircleDemoActivity"/>
-        <activity android:name=".CameraDemoActivity"/>
-        <activity android:name=".BasicMapDemoActivity"/>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".LocationSourceDemoActivity">
-        </activity>
-        <activity android:name=".LiteDemoActivity" />
-        <activity android:name=".LiteListDemoActivity" >
-        </activity>
-        <activity android:name=".MapInPagerDemoActivity" >
+        <activity android:name=".PolygonDemoActivity" />
+        <activity android:name=".VisibleRegionDemoActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PolylineDemoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-
-
-
-
-
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".CloseInfoWindowDemoActivity"></activity>
+        <activity android:name=".GroundOverlayDemoActivity" />
+        <activity android:name=".LayersDemoActivity" />
+        <activity android:name=".IndoorDemoActivity" />
+        <activity android:name=".CameraClampingDemoActivity" />
+        <activity android:name=".CircleDemoActivity" />
+        <activity android:name=".CameraDemoActivity" />
+        <activity android:name=".BasicMapDemoActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".LocationSourceDemoActivity" />
+        <activity android:name=".LiteDemoActivity" />
+        <activity android:name=".LiteListDemoActivity" />
+        <activity android:name=".MarkerDemoActivity" />
+        <activity android:name=".MapInPagerDemoActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/maps_api_key" />
-
-
     </application>
 
 </manifest>
