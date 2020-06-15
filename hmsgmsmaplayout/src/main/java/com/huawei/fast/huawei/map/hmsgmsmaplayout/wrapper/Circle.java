@@ -2,6 +2,9 @@ package com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Circle {
     com.huawei.hms.maps.model.Circle hmsCircle;
@@ -28,15 +31,10 @@ public class Circle {
     }
 
     public void setCenter(LatLng latLng) {
-        if (hmsCircle != null)  hmsCircle.setCenter(new com.huawei.hms.maps.model.LatLng(latLng.getLat(),latLng.getLng()));
-        if (gmsCircle != null)  gmsCircle.setCenter(new com.google.android.gms.maps.model.LatLng(latLng.getLat(),latLng.getLng()));
+        if (hmsCircle != null)  hmsCircle.setCenter(latLng.huawei);
+        if (gmsCircle != null)  gmsCircle.setCenter(latLng.google);
     }
 
-    public LatLng getCenter() {
-        if (hmsCircle != null)  return new LatLng(hmsCircle.getCenter().latitude, hmsCircle.getCenter().longitude);
-        if (gmsCircle != null)  return new LatLng(gmsCircle.getCenter().latitude, gmsCircle.getCenter().longitude);
-        return null;
-    }
 
     public void setRadius(double value) {
         if (hmsCircle != null)  hmsCircle.setRadius(value);
@@ -71,16 +69,41 @@ public class Circle {
         return -1;
     }
 
-//TODO
+    public void setStrokePattern(@Nullable List<PatternItem> values) {
+        if (values != null){
+            List<com.google.android.gms.maps.model.PatternItem> vGoogle = new ArrayList<>();
+            List<com.huawei.hms.maps.model.PatternItem> vHuawei = new ArrayList<>();
 
-//    public void setStrokePattern(@Nullable List<PatternItem> var1) {
-//
-//    }
-//
-//    @Nullable
-//    public List<PatternItem> getStrokePattern() {
-//
-//    }
+            for (PatternItem item:values){
+                vGoogle.add(item.gPattern);
+                vHuawei.add(item.hPattern);
+            }
+            if (gmsCircle != null) gmsCircle.setStrokePattern(vGoogle);
+            if (hmsCircle != null) hmsCircle.setStrokePattern(vHuawei);
+        }
+
+    }
+
+    @Nullable
+    public List<PatternItem> getStrokePattern() {
+        List<PatternItem> values = new ArrayList<>();
+        List<com.google.android.gms.maps.model.PatternItem> vGoogle;
+        List<com.huawei.hms.maps.model.PatternItem> vHuawei;
+        if (gmsCircle != null){
+            vGoogle = gmsCircle.getStrokePattern();
+            for (com.google.android.gms.maps.model.PatternItem item: vGoogle){
+                values.add(new PatternItem(item, null));
+            }
+        }
+        if (hmsCircle != null){
+            vHuawei = hmsCircle.getStrokePattern();
+            for (com.huawei.hms.maps.model.PatternItem item: vHuawei){
+                values.add(new PatternItem(null, item));
+            }
+        }
+
+        return values;
+    }
 
     public void setFillColor(int value) {
         if (hmsCircle != null)  hmsCircle.setFillColor(value);

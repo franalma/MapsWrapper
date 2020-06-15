@@ -1,27 +1,15 @@
 package com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper;
 
 public class LatLng {
-    double lat;
-    double lng;
+ com.huawei.hms.maps.model.LatLng huawei;
+ com.google.android.gms.maps.model.LatLng google;
 
-    public LatLng(double lat, double lng) {
-        this.lat = lat;
-        this.lng = lng;
-    }
-
-    public double getLat() {
-        return lat;
-    }
-
-    public void setLat(double lat) {
-        this.lat = lat;
-    }
-
-    public double getLng() {
-        return lng;
-    }
-
-    public void setLng(double lng) {
-        this.lng = lng;
+    public double latitude;
+    public double longitude;
+    public LatLng(double latitude, double longitude) {
+        this.huawei = new com.huawei.hms.maps.model.LatLng(latitude, longitude);
+        this.google = new com.google.android.gms.maps.model.LatLng(latitude, longitude);
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 }

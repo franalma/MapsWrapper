@@ -21,6 +21,7 @@ public class UiSettings {
         if (huaweiMap != null) huaweiMap.getUiSettings().setZoomControlsEnabled(value);
         if (googleMap != null) googleMap.getUiSettings().setZoomControlsEnabled(value);
     }
+    
 
     public final void setCompassEnabled(boolean value) {
         if (huaweiMap != null) huaweiMap.getUiSettings().setCompassEnabled(value);
