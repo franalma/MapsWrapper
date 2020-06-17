@@ -5,7 +5,7 @@
 		"client_id":"370850170205635584",
 		"client_secret":"541E86D01AC3CE0556AF34E79365588852BA4502754E408E72CE5E18D86ACB79",
 		"app_id":"102284009",
-		"package_name":"com.huawei.fast.huawei.map.layout",
+		"package_name":"maps.wrapper.test.app",
 		"api_key":"CV70XKDI7xd8fgIsanmTNgTkYD+g3JNvuZ/N6ScNlD2s39AW/8ouuKO04Xp1XV6PRhbynOrPqCLvWcQNhblvwXY3zVUW"
 	},
 	"configuration_version":"1.0"

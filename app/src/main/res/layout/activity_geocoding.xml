@@ -13,9 +13,8 @@
         android:inputType="text"/>
 
     <fragment
-        class="com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper.SupportMapFragment"
+        class="maps.wrapper.SupportMapFragment"
         android:id="@+id/map"
-        app:type="huawei"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

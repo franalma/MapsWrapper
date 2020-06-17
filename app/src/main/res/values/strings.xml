@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HuaweiMapLayout</string>
+    <string name="app_name">Support Fragment Wrapper Tests</string>
     <string name="no_demos">No demos</string>
     <string name="play_services_not_installed">Google Play services is not installed on this device.</string>
 
@@ -229,4 +229,8 @@
     <string name="query">Query</string>
     <string name="no_geocoder">No geocoder</string>
     <string name="error">An error happened!</string>
+
+
+    <string name="route_demo_label">Routes</string>
+    <string name="route_demo_label_description">Demonstrates how to use routing.</string>
 </resources>

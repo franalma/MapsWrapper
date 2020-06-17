@@ -67,8 +67,7 @@
     <fragment
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/map"
-        class="com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper.SupportMapFragment"
-        app:type="huawei"
+        class="maps.wrapper.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

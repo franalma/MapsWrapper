@@ -29,13 +29,12 @@
 
     <!-- MapView in lite mode. Note that it needs to be initialised
          programmatically before it can be used. -->
-    <com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper.MapView
+    <maps.wrapper.MapView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/lite_listrow_map"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         map:liteMode="true"
-        app:type="huawei"
         map:mapType="none"
         />
 

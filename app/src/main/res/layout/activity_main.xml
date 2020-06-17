@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="maps.wrapper.test.app.MainActivity">
 
     <fragment android:id="@+id/id_framelayout_map"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:type="huawei"
-        class="com.huawei.fast.huawei.map.hmsgmsmaplayout.wrapper.SupportMapFragment"/>
+        class="maps.wrapper.SupportMapFragment"/>
 </RelativeLayout>
