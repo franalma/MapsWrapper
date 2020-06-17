@@ -81,9 +81,10 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
-secure.properties
+
+#others
 secure.properties
 secure - Copy.properties
-secure.properties
 app/agconnect-services.json
-app/agconnect-services.json
+app/android_ks.jks
+
