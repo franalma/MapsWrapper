@@ -82,5 +82,13 @@ public final class DemoDetailsList {
             new DemoDetails(R.string.route_demo_label,
                     R.string.route_demo_label_description,
                     RouteDemoActivity.class),
+
+            new DemoDetails(R.string.tile_overlay_demo_label,
+                    R.string.tile_overlay_demo_description,
+                    TileOverlayDemoActivity.class),
+
+            new DemoDetails(R.string.tile_coordinate_demo_label,
+                    R.string.tile_coordinate_demo_description,
+                    TileCoordinateDemoActivity.class),
     };
 }

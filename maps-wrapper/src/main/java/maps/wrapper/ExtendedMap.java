@@ -706,4 +706,14 @@ public class ExtendedMap {
             huaweiMap.setLocationSource(huawei);
         }
     }
+
+    public TileOverlay addTileOverlay(TileOverlayOptions tileOverlayOptions){
+        if (isGoogle()){
+            return new TileOverlay(googleMap.addTileOverlay(tileOverlayOptions.google),null);
+        }
+        if (isHuawei()){
+            return new TileOverlay(null, huaweiMap.addTileOverlay(tileOverlayOptions.huawei));
+        }
+        return new TileOverlay(null, null);
+    }
 }
