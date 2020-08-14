@@ -1,4 +1,4 @@
-# maps-wrapper
+# MapsWrapper
 
 [![](https://jitpack.io/v/franalma/MapsWrapper.svg)](https://jitpack.io/#franalma/MapsWrapper/)
 
