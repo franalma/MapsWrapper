@@ -23,6 +23,51 @@ public class MapView extends FrameLayout {
         else if (isHuaweiMap()) getHuaweMap().onCreate(bundle);
     }
 
+    public void onDestroy(){
+        if (isGoogleMap()) getGoogleMap().onDestroy();
+        else if (isHuaweiMap()) getHuaweMap().onDestroy();
+    }
+
+    public void onEnterAmbient(Bundle ambientDetails){
+        if (isGoogleMap()) getGoogleMap().onEnterAmbient(ambientDetails);
+        else if (isHuaweiMap()) getHuaweMap().onEnterAmbient(ambientDetails);
+    }
+
+    public void onExitAmbient(){
+        if (isGoogleMap()) getGoogleMap().onExitAmbient();
+        else if (isHuaweiMap()) getHuaweMap().onExitAmbient();
+    }
+
+    public void onLowMemory(){
+        if (isGoogleMap()) getGoogleMap().onLowMemory();
+        else if (isHuaweiMap()) getHuaweMap().onLowMemory();
+    }
+
+    public void onPause(){
+        if (isGoogleMap()) getGoogleMap().onPause();
+        else if (isHuaweiMap()) getHuaweMap().onPause();
+    }
+
+    public void onResume(){
+        if (isGoogleMap()) getGoogleMap().onResume();
+        else if (isHuaweiMap()) getHuaweMap().onResume();
+    }
+
+    public void onSaveInstanceState(Bundle outState) {
+        if (isGoogleMap()) getGoogleMap().onSaveInstanceState(outState);
+        else if (isHuaweiMap()) getHuaweMap().onSaveInstanceState(outState);
+    }
+
+    public void onStart(){
+        if (isGoogleMap()) getGoogleMap().onStart();
+        else if (isHuaweiMap()) getHuaweMap().onStart();
+    }
+
+    public void onStop() {
+        if (isGoogleMap()) getGoogleMap().onStop();
+        else if (isHuaweiMap()) getHuaweMap().onStop();
+    }
+
     private com.google.android.gms.maps.MapView  getGoogleMap(){
         return (com.google.android.gms.maps.MapView) mapView;
     }
