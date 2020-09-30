@@ -6,7 +6,7 @@ public class Projection {
     com.huawei.hms.maps.Projection huawei;
     com.google.android.gms.maps.Projection google;
 
-    public Projection(com.huawei.hms.maps.Projection huawei,
+    Projection(com.huawei.hms.maps.Projection huawei,
                       com.google.android.gms.maps.Projection google) {
         this.huawei = huawei;
         this.google = google;

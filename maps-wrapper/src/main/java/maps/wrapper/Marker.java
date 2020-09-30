@@ -7,7 +7,7 @@ public class Marker {
     com.google.android.gms.maps.model.Marker google;
     com.huawei.hms.maps.model.Marker huawei;
 
-    public Marker(com.google.android.gms.maps.model.Marker google, com.huawei.hms.maps.model.Marker huawei) {
+    Marker(com.google.android.gms.maps.model.Marker google, com.huawei.hms.maps.model.Marker huawei) {
         this.google = google;
         this.huawei = huawei;
     }
