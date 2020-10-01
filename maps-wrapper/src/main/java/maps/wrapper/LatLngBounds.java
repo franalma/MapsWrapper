@@ -7,9 +7,9 @@ public class LatLngBounds {
     private LatLngBounds() {
     }
 
-    public LatLngBounds(LatLng latLng1, LatLng latLng2) {
-        this.google = new com.google.android.gms.maps.model.LatLngBounds(latLng1.google, latLng2.google);
-        this.huawei = new com.huawei.hms.maps.model.LatLngBounds(latLng1.huawei, latLng2.huawei);
+    public LatLngBounds(LatLng southwest, LatLng northeast) {
+        this.google = new com.google.android.gms.maps.model.LatLngBounds(southwest.google, northeast.google);
+        this.huawei = new com.huawei.hms.maps.model.LatLngBounds(southwest.huawei, northeast.huawei);
     }
 
     public static LatLngBounds.Builder builder() {
