@@ -10,13 +10,24 @@ public class TileOverlay {
         this.huawei = huawei;
     }
 
-    public void setFadeIn(boolean value) {
+    public final void setFadeIn(boolean value) {
         if (this.google != null) google.setFadeIn(value);
         if (this.huawei != null) huawei.setFadeIn(value);
     }
 
-    public void setTransparency(float value) {
+    public final void setTransparency(float value) {
         if (this.google != null) google.setTransparency(value);
         if (this.huawei != null) huawei.setTransparency(value);
+    }
+
+    public final float getZIndex() {
+        if (google != null) return google.getZIndex();
+        if (huawei != null) return huawei.getZIndex();
+        throw new UnsupportedOperationException("Missing underlying GMS/HMS TileOverlay.");
+    }
+
+    public final void setZIndex(float value) {
+        if (this.google != null) google.setZIndex(value);
+        if (this.huawei != null) huawei.setZIndex(value);
     }
 }
