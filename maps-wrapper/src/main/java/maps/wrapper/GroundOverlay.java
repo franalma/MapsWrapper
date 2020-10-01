@@ -6,7 +6,7 @@ public class GroundOverlay {
     com.huawei.hms.maps.model.GroundOverlay huawei;
     com.google.android.gms.maps.model.GroundOverlay google;
 
-    public GroundOverlay(com.google.android.gms.maps.model.GroundOverlay google,
+    GroundOverlay(com.google.android.gms.maps.model.GroundOverlay google,
                          com.huawei.hms.maps.model.GroundOverlay huawei) {
         this.huawei = huawei;
         this.google = google;

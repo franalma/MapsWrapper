@@ -4,7 +4,7 @@ public class IndoorLevel {
     com.google.android.gms.maps.model.IndoorLevel google;
     com.huawei.hms.maps.model.IndoorLevel huawei;
 
-    public IndoorLevel(com.google.android.gms.maps.model.IndoorLevel google, com.huawei.hms.maps.model.IndoorLevel huawei) {
+    IndoorLevel(com.google.android.gms.maps.model.IndoorLevel google, com.huawei.hms.maps.model.IndoorLevel huawei) {
         this.google = google;
         this.huawei = huawei;
     }

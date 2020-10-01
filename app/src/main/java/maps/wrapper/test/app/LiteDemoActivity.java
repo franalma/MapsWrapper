@@ -32,9 +32,9 @@ import maps.wrapper.SupportMapFragment;
 
 /**
  * This demo shows some features supported in lite mode.
- * In particular it demonstrates the use of {@link com.google.android.gms.maps.model.Marker}s to
- * launch the Google Maps Mobile application, {@link com.google.android.gms.maps.CameraUpdate}s
- * and {@link com.google.android.gms.maps.model.Polygon}s.
+ * In particular it demonstrates the use of {@link maps.wrapper.Marker}s to
+ * launch the Google Maps Mobile application, {@link maps.wrapper.CameraUpdate}s
+ * and {@link maps.wrapper.Polygon}s.
  */
 public class LiteDemoActivity extends AppCompatActivity implements
         OnMapAndViewReadyListener.OnGlobalLayoutAndMapReadyListener {
@@ -102,7 +102,7 @@ public class LiteDemoActivity extends AppCompatActivity implements
 
     /**
      * Move the camera to show all of Australia.
-     * Construct a {@link com.google.android.gms.maps.model.LatLngBounds} from markers positions,
+     * Construct a {@link maps.wrapper.LatLngBounds} from markers positions,
      * then move the camera.
      */
     public void showAustralia(View v) {

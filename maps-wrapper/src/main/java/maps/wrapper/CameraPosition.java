@@ -10,7 +10,7 @@ public class CameraPosition {
     public LatLng target ;
 
 
-    public CameraPosition(com.google.android.gms.maps.model.CameraPosition google,
+    CameraPosition(com.google.android.gms.maps.model.CameraPosition google,
                           com.huawei.hms.maps.model.CameraPosition huawei) {
         this.google = google;
         this.huawei = huawei;

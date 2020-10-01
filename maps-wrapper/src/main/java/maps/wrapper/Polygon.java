@@ -8,7 +8,7 @@ public class Polygon {
     com.google.android.gms.maps.model.Polygon google;
     com.huawei.hms.maps.model.Polygon huawei;
 
-    public Polygon(com.google.android.gms.maps.model.Polygon google,
+    Polygon(com.google.android.gms.maps.model.Polygon google,
                    com.huawei.hms.maps.model.Polygon huawei) {
         this.google = google;
         this.huawei = huawei;

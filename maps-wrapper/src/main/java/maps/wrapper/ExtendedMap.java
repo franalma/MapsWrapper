@@ -92,6 +92,14 @@ public class ExtendedMap {
         void onInfoWindowLongClick(Marker marker);
     }
 
+    public interface OnMapLoadedCallback {
+        void onMapLoaded();
+    }
+
+    public interface OnMyLocationButtonClickListener {
+        boolean onMyLocationButtonClick();
+    }
+
     ExtendedMap(HuaweiMap huaweiMap) {
         this.huaweiMap = huaweiMap;
     }
@@ -653,6 +661,44 @@ public class ExtendedMap {
         });
     }
 
+    public void setOnMapLoadedCallback(final OnMapLoadedCallback listener) {
+        if(isGoogle()) {
+            googleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+                @Override
+                public void onMapLoaded() {
+                    listener.onMapLoaded();
+                }
+            });
+        }
+        if(isHuawei()) {
+            huaweiMap.setOnMapLoadedCallback(new HuaweiMap.OnMapLoadedCallback() {
+                @Override
+                public void onMapLoaded() {
+                    listener.onMapLoaded();
+                }
+            });
+        }
+    }
+
+    public void setOnMyLocationButtonClickListener(final OnMyLocationButtonClickListener listener) {
+        if(isGoogle()) {
+            googleMap.setOnMyLocationButtonClickListener(new GoogleMap.OnMyLocationButtonClickListener() {
+                @Override
+                public boolean onMyLocationButtonClick() {
+                    return listener.onMyLocationButtonClick();
+                }
+            });
+        }
+        if(isHuawei()) {
+            huaweiMap.setOnMyLocationButtonClickListener(new HuaweiMap.OnMyLocationButtonClickListener() {
+                @Override
+                public boolean onMyLocationButtonClick() {
+                    return listener.onMyLocationButtonClick();
+                }
+            });
+        }
+    }
+
     public void setLatLngBoundsForCameraTarget(LatLngBounds values) {
         if (values != null){
             if (isGoogle()) googleMap.setLatLngBoundsForCameraTarget(values.google);
@@ -706,6 +752,8 @@ public class ExtendedMap {
             huaweiMap.setLocationSource(huawei);
         }
     }
+
+
 
     public TileOverlay addTileOverlay(TileOverlayOptions tileOverlayOptions){
         if (isGoogle()){

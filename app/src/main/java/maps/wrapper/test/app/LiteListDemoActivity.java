@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -39,7 +40,7 @@ import maps.wrapper.OnMapReadyCallback;
 /**
  * This shows to include a map in lite mode in a ListView.
  * Note the use of the view holder pattern with the
- * {@link com.google.android.gms.maps.OnMapReadyCallback}.
+ * {@link maps.wrapper.OnMapReadyCallback}.
  */
 public class LiteListDemoActivity extends AppCompatActivity {
 
@@ -64,7 +65,9 @@ public class LiteListDemoActivity extends AppCompatActivity {
         mRecyclerView.setRecyclerListener(mRecycleListener);
     }
 
-    /** Create a menu to switch between Linear and Grid LayoutManager. */
+    /**
+     * Create a menu to switch between Linear and Grid LayoutManager.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.lite_list_menu, menu);
@@ -85,7 +88,7 @@ public class LiteListDemoActivity extends AppCompatActivity {
     }
 
     /**
-     * Adapter that displays a title and {@link com.google.android.gms.maps.MapView} for each item.
+     * Adapter that displays a title and {@link maps.wrapper.MapView} for each item.
      * The layout is defined in <code>lite_list_demo_row.xml</code>. It contains a MapView
      * that is programatically initialised in
      * {@link #(int, View, ViewGroup)}
@@ -126,7 +129,7 @@ public class LiteListDemoActivity extends AppCompatActivity {
          * Holder for Views used in the {@link LiteListDemoActivity.MapAdapter}.
          * Once the  the <code>map</code> field is set, otherwise it is null.
          * When the  callback is received and
-         * the {@link com.google.android.gms.maps.GoogleMap} is ready, it stored in the {@link #map}
+         * the {@link maps.wrapper.ExtendedMap} is ready, it stored in the {@link #map}
          * field. The map is then initialised with the NamedLocation that is stored as the tag of the
          * MapView. This ensures that the map is initialised with the latest data that it should
          * display.
@@ -160,7 +163,7 @@ public class LiteListDemoActivity extends AppCompatActivity {
 
             /**
              * Displays a {@link LiteListDemoActivity.NamedLocation} on a
-             * {@link com.google.android.gms.maps.GoogleMap}.
+             * {@link maps.wrapper.ExtendedMap}.
              * Adds a marker and centers the camera on the NamedLocation with the normal map type.
              */
             private void setMapLocation() {
@@ -191,9 +194,9 @@ public class LiteListDemoActivity extends AppCompatActivity {
     }
 
     /**
-     * RecycleListener that completely clears the {@link com.google.android.gms.maps.GoogleMap}
+     * RecycleListener that completely clears the {@link maps.wrapper.ExtendedMap}
      * attached to a row in the RecyclerView.
-     * Sets the map type to {@link com.google.android.gms.maps.GoogleMap#MAP_TYPE_NONE} and clears
+     * Sets the map type to {@link maps.wrapper.ExtendedMap#MAP_TYPE_NONE} and clears
      * the map.
      */
     private RecyclerView.RecyclerListener mRecycleListener = new RecyclerView.RecyclerListener() {
@@ -212,7 +215,7 @@ public class LiteListDemoActivity extends AppCompatActivity {
     };
 
     /**
-     * Location represented by a position ({@link com.google.android.gms.maps.model.LatLng} and a
+     * Location represented by a position ({@link maps.wrapper.LatLng} and a
      * name ({@link String}).
      */
     private static class NamedLocation {

@@ -9,11 +9,11 @@ public class Circle {
     com.huawei.hms.maps.model.Circle hmsCircle;
     com.google.android.gms.maps.model.Circle gmsCircle;
 
-    public Circle(com.huawei.hms.maps.model.Circle hmsCircle) {
+    Circle(com.huawei.hms.maps.model.Circle hmsCircle) {
         this.hmsCircle = hmsCircle;
     }
 
-    public Circle(com.google.android.gms.maps.model.Circle gmsCircle) {
+    Circle(com.google.android.gms.maps.model.Circle gmsCircle) {
         this.gmsCircle = gmsCircle;
     }
 

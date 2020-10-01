@@ -9,11 +9,11 @@ public class Polyline {
     private com.google.android.gms.maps.model.Polyline google;
     private com.huawei.hms.maps.model.Polyline huawei;
 
-    public Polyline(com.google.android.gms.maps.model.Polyline google) {
+    Polyline(com.google.android.gms.maps.model.Polyline google) {
         this.google = google;
     }
 
-    public Polyline(com.huawei.hms.maps.model.Polyline huawei) {
+    Polyline(com.huawei.hms.maps.model.Polyline huawei) {
         this.huawei = huawei;
     }
 

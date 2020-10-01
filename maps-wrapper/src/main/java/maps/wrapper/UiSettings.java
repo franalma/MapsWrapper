@@ -8,11 +8,11 @@ public class UiSettings {
     private HuaweiMap huaweiMap;
     private GoogleMap googleMap;
 
-    public UiSettings(HuaweiMap huaweiMap) {
+    UiSettings(HuaweiMap huaweiMap) {
         this.huaweiMap = huaweiMap;
     }
 
-    public UiSettings(GoogleMap googleMap) {
+    UiSettings(GoogleMap googleMap) {
         this.googleMap = googleMap;
     }
 
@@ -20,7 +20,7 @@ public class UiSettings {
         if (huaweiMap != null) huaweiMap.getUiSettings().setZoomControlsEnabled(value);
         if (googleMap != null) googleMap.getUiSettings().setZoomControlsEnabled(value);
     }
-    
+
 
     public final void setCompassEnabled(boolean value) {
         if (huaweiMap != null) huaweiMap.getUiSettings().setCompassEnabled(value);
@@ -58,8 +58,10 @@ public class UiSettings {
     }
 
     public final void setScrollGesturesEnabledDuringRotateOrZoom(boolean value) {
-        if (huaweiMap != null) huaweiMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
-        if (googleMap != null) googleMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
+        if (huaweiMap != null)
+            huaweiMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
+        if (googleMap != null)
+            googleMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
     }
 
     public final void setAllGesturesEnabled(boolean value) {
@@ -103,8 +105,10 @@ public class UiSettings {
     }
 
     public final boolean isScrollGesturesEnabledDuringRotateOrZoom() {
-        if (huaweiMap != null) return huaweiMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
-        if (googleMap != null) return googleMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
+        if (huaweiMap != null)
+            return huaweiMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
+        if (googleMap != null)
+            return googleMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
         return false;
     }
 
