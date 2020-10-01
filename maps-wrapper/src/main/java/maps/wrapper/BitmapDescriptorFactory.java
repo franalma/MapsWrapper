@@ -3,7 +3,7 @@ package maps.wrapper;
 import android.graphics.Bitmap;
 
 public class BitmapDescriptorFactory {
-    public final static float  HUE_RED = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED;
+    public final static float HUE_RED = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_RED;
     public final static float HUE_ORANGE = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_ORANGE;
     public final static float HUE_YELLOW = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_YELLOW;
     public final static float HUE_GREEN = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_GREEN;
@@ -14,49 +14,65 @@ public class BitmapDescriptorFactory {
     public final static float HUE_MAGENTA = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_MAGENTA;
     public final static float HUE_ROSE = com.google.android.gms.maps.model.BitmapDescriptorFactory.HUE_ROSE;
 
-    public static BitmapDescriptor  fromResource (int id){
+    public static BitmapDescriptor fromResource(int id) {
         com.google.android.gms.maps.model.BitmapDescriptor google = null;
         com.huawei.hms.maps.model.BitmapDescriptor huawei = null;
-        try{
+        try {
             google = com.google.android.gms.maps.model.BitmapDescriptorFactory.fromResource(id);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        try{
+        try {
             huawei = com.huawei.hms.maps.model.BitmapDescriptorFactory.fromResource(id);
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
-        return new BitmapDescriptor(huawei,google);
+        return new BitmapDescriptor(huawei, google);
     }
 
-    public static BitmapDescriptor  defaultMarker (float hue){
+    public static BitmapDescriptor defaultMarker(float hue) {
         com.google.android.gms.maps.model.BitmapDescriptor google = null;
         com.huawei.hms.maps.model.BitmapDescriptor huawei = null;
-        try{
+        try {
             google = com.google.android.gms.maps.model.BitmapDescriptorFactory.defaultMarker(hue);
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
-        try{
+        try {
             huawei = com.huawei.hms.maps.model.BitmapDescriptorFactory.defaultMarker(hue);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return new BitmapDescriptor(huawei,google);
+        return new BitmapDescriptor(huawei, google);
     }
 
-    public static BitmapDescriptor fromBitmap(Bitmap bitmap){
+    public static BitmapDescriptor fromBitmap(Bitmap bitmap) {
         com.google.android.gms.maps.model.BitmapDescriptor google = null;
         com.huawei.hms.maps.model.BitmapDescriptor huawei = null;
-        try{
+        try {
             google = com.google.android.gms.maps.model.BitmapDescriptorFactory.fromBitmap(bitmap);
-        }catch(Exception e){
+        } catch (Exception e) {
 
         }
-        try{
+        try {
             huawei = com.huawei.hms.maps.model.BitmapDescriptorFactory.fromBitmap(bitmap);
-        }catch(Exception e){
+        } catch (Exception e) {
+
+        }
+        return new BitmapDescriptor(huawei, google);
+    }
+
+    public static BitmapDescriptor defaultMarker() {
+        com.google.android.gms.maps.model.BitmapDescriptor google = null;
+        com.huawei.hms.maps.model.BitmapDescriptor huawei = null;
+        try {
+            google = com.google.android.gms.maps.model.BitmapDescriptorFactory.defaultMarker();
+        } catch (Exception e) {
+
+        }
+        try {
+            huawei = com.huawei.hms.maps.model.BitmapDescriptorFactory.defaultMarker();
+        } catch (Exception e) {
 
         }
         return new BitmapDescriptor(huawei, google);
