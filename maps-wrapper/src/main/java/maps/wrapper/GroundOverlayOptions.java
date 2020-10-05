@@ -46,15 +46,22 @@ public class GroundOverlayOptions {
         return this;
     }
 
+    public final GroundOverlayOptions positionFromBounds(LatLngBounds bounds) {
+        if (google != null) google = google.positionFromBounds(bounds.google);
+        if (huawei != null) huawei = huawei.positionFromBounds(bounds.huawei);
+        return this;
+    }
+
     public final GroundOverlayOptions bearing(float value) {
         if (google != null) google = google.bearing(value);
         if (huawei != null) huawei = huawei.bearing(value);
         return this;
     }
 
-    public final void zIndex(float value) {
+    public final GroundOverlayOptions zIndex(float value) {
         if (google != null) google.zIndex(value);
         if (huawei != null) huawei.zIndex(value);
+        return this;
     }
 
     public final float getZIndex() {
