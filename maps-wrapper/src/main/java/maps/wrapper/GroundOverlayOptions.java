@@ -22,9 +22,15 @@ public class GroundOverlayOptions {
         return this;
     }
 
-    public final GroundOverlayOptions position(LatLng latLng, float length) {
-        if (google != null) google = google.position(latLng.google, length);
-        if (huawei != null) huawei = huawei.position(latLng.huawei, length);
+    public final GroundOverlayOptions position(LatLng latLng, float width) {
+        if (google != null) google = google.position(latLng.google, width);
+        if (huawei != null) huawei = huawei.position(latLng.huawei, width);
+        return this;
+    }
+
+    public final GroundOverlayOptions position(LatLng latLng, float width, float height) {
+        if (google != null) google = google.position(latLng.google, width, height);
+        if (huawei != null) huawei = huawei.position(latLng.huawei, width, height);
         return this;
     }
 
@@ -40,26 +46,27 @@ public class GroundOverlayOptions {
         return this;
     }
 
-    public final GroundOverlayOptions position(LatLng latLng, float value1, float value2) {
-        if (google != null) google = google.position(latLng.google, value1, value2);
-        if (huawei != null) huawei = huawei.position(latLng.huawei, value1, value2);
-        return this;
-    }
-
     public final GroundOverlayOptions bearing(float value) {
         if (google != null) google = google.bearing(value);
         if (huawei != null) huawei = huawei.bearing(value);
         return this;
     }
 
-    public final void zIndex(float value) {
+    public final GroundOverlayOptions zIndex(float value) {
         if (google != null) google.zIndex(value);
         if (huawei != null) huawei.zIndex(value);
+        return this;
     }
 
     public final float getZIndex() {
         if (google != null) return google.getZIndex();
         if (huawei != null) return huawei.getZIndex();
         throw new UnsupportedOperationException("Missing underlying GMS/HMS Polygon.");
+    }
+
+    public GroundOverlayOptions positionFromBounds(LatLngBounds bounds) {
+        if (google != null) google = google.positionFromBounds(bounds.google);
+        if (huawei != null) huawei = huawei.positionFromBounds(bounds.huawei);
+        return this;
     }
 }
