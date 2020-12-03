@@ -2,8 +2,9 @@
 
 [![](https://jitpack.io/v/franalma/MapsWrapper.svg)](https://jitpack.io/#franalma/MapsWrapper/)
 
-
 Wrapper that unifies Google and Huawei maps in a single API.
+
+
 
 ## Usage
 
@@ -86,6 +87,8 @@ overridden programmatically.
 You can check the *testapplication* module for an example app that contains more exhaustive
 examples for each part of the maps API.
 
+
+
 ## Extended API
 
 Some classes have enhanced API support:
@@ -93,24 +96,38 @@ Some classes have enhanced API support:
 - `SupportMapFragment` supports a suspend `mapAsync()` method that returns a `ExtendedMap`.
 - `MapView` supports a suspend `mapAsync()` method that returns a `ExtendedMap`.
 
+
+
 ## Add as dependency
 
-Add Jitpack to your project repositories in your root build.gradle.
+In your root `build.gradle` add [Jitpack](https://jitpack.io/) to the list of known repositories. Check that the Huawei and Google own repositories are there as well.
 
 ```gradle
 allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
+		maven { url 'https://developer.huawei.com/repo/' }
+		google()
+	}
 }
 ```
-Then add the dependency on your app build.gradle
+
+Then add the actual library dependency in your app `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.franalma:MapsWrapper:1.1.1'
+    implementation 'com.github.franalma:MapsWrapper:1.1.5'
 }
 ```
 
-Note that you no longer need to define Google Maps or Huawei Maps dependencies explicitly, this library
-already has dependencies on both of them.
+Note that you no longer need to define Google Maps or Huawei Maps dependencies explicitly in your app's `build.gradle`, this library already has dependencies on both of them.
+
+
+
+## Obtaining an API key
+
+Both Google Maps and Huawei Maps require an API key. Follow the instructions on how to setup your app:
+
+- Google Maps: https://developers.google.com/maps/documentation/android-sdk/start
+- Huawei Maps: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-sdk-config-agc-0000001061560289-V5
