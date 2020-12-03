@@ -29,7 +29,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
-    implementation 'com.huawei.hms:maps:5.0.1.301'
+    implementation 'com.huawei.hms:maps:5.0.5.301'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
