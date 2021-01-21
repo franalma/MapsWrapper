@@ -1,10 +1,9 @@
 package maps.wrapper.test.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;

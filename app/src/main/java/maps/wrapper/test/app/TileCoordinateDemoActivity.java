@@ -20,7 +20,8 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
+
 import java.io.ByteArrayOutputStream;
 import maps.wrapper.ExtendedMap;
 import maps.wrapper.OnMapReadyCallback;

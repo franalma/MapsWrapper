@@ -18,6 +18,7 @@ import android.graphics.Color;
 import android.graphics.Point;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -26,7 +27,6 @@ import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Spinner;
-import androidx.appcompat.app.AppCompatActivity;
 
 import maps.wrapper.BitmapDescriptorFactory;
 import maps.wrapper.CameraUpdateFactory;

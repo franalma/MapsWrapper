@@ -57,12 +57,13 @@ public class UiSettings {
         if (googleMap != null) googleMap.getUiSettings().setRotateGesturesEnabled(value);
     }
 
-    public final void setScrollGesturesEnabledDuringRotateOrZoom(boolean value) {
-        if (huaweiMap != null)
-            huaweiMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
-        if (googleMap != null)
-            googleMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
-    }
+    // not available for GMaps v.15.0.1
+//    public final void setScrollGesturesEnabledDuringRotateOrZoom(boolean value) {
+//        if (huaweiMap != null)
+//            huaweiMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
+//        if (googleMap != null)
+//            googleMap.getUiSettings().setScrollGesturesEnabledDuringRotateOrZoom(value);
+//    }
 
     public final void setAllGesturesEnabled(boolean value) {
         if (huaweiMap != null) huaweiMap.getUiSettings().setAllGesturesEnabled(value);
@@ -104,13 +105,14 @@ public class UiSettings {
         return false;
     }
 
-    public final boolean isScrollGesturesEnabledDuringRotateOrZoom() {
-        if (huaweiMap != null)
-            return huaweiMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
-        if (googleMap != null)
-            return googleMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
-        return false;
-    }
+    // not available for GMaps v.15.0.1
+//    public final boolean isScrollGesturesEnabledDuringRotateOrZoom() {
+//        if (huaweiMap != null)
+//            return huaweiMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
+//        if (googleMap != null)
+//            return googleMap.getUiSettings().isScrollGesturesEnabledDuringRotateOrZoom();
+//        return false;
+//    }
 
     public final boolean isZoomGesturesEnabled() {
         if (huaweiMap != null) return huaweiMap.getUiSettings().isZoomGesturesEnabled();

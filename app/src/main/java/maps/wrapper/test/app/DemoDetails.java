@@ -15,7 +15,7 @@
 
 package maps.wrapper.test.app;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * A simple POJO that holds the details about the demo that are used by the List Adapter.

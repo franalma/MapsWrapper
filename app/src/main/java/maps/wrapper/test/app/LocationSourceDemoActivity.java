@@ -17,8 +17,7 @@ package maps.wrapper.test.app;
 
 import android.location.Location;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.support.v7.app.AppCompatActivity;
 
 import maps.wrapper.ExtendedMap;
 import maps.wrapper.LatLng;

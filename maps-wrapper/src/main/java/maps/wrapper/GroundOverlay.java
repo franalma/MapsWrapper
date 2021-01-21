@@ -1,6 +1,6 @@
 package maps.wrapper;
 
-import androidx.annotation.NonNull;
+import android.support.annotation.NonNull;
 
 public class GroundOverlay {
     com.huawei.hms.maps.model.GroundOverlay huawei;

@@ -1,10 +1,9 @@
 package maps.wrapper;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-
-import androidx.fragment.app.Fragment;
 
 import java.util.Arrays;
 

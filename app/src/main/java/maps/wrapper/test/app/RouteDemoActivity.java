@@ -1,8 +1,9 @@
 package maps.wrapper.test.app;
 
-import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.annotations.SerializedName;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import maps.wrapper.CameraUpdate;

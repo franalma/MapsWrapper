@@ -1,8 +1,8 @@
 package maps.wrapper.test.app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
 import maps.wrapper.CameraUpdateFactory;
 import maps.wrapper.ExtendedMap;
 import maps.wrapper.LatLng;

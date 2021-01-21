@@ -16,14 +16,14 @@
 package maps.wrapper.test.app;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 
 import maps.wrapper.SupportMapFragment;
 
@@ -62,7 +62,7 @@ public class MapInPagerDemoActivity extends AppCompatActivity {
     public static class MyAdapter extends FragmentPagerAdapter {
 
         public MyAdapter(FragmentManager fm) {
-            super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+            super(fm);
         }
 
         @Override

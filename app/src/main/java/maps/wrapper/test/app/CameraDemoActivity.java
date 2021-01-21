@@ -17,12 +17,12 @@ package maps.wrapper.test.app;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.Toast;
-import androidx.appcompat.app.AppCompatActivity;
 
 import maps.wrapper.CameraPosition;
 import maps.wrapper.CameraUpdate;
