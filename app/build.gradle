@@ -20,8 +20,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
 
         // Read the API key from ApiDemos/java/secure.properties into R.string.maps_api_key
         def secureProps = new Properties()

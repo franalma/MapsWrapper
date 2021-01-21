@@ -4,7 +4,7 @@
 
 Wrapper that unifies Google and Huawei maps in a single API.
 
-
+Use this branch when the wrapper needs to be integrated in apps that didn't yet migrate to [AndroidX](https://developer.android.com/jetpack/androidx/migrate). Because of that, the used versions of Google Maps SDK  and Huawei Map Kit are not the latest, but rather specific ones that depend on the support libraries.
 
 ## Usage
 
@@ -117,7 +117,7 @@ Then add the actual library dependency in your app `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.franalma:MapsWrapper:1.1.6'
+    implementation 'com.github.franalma:MapsWrapper:1.1.5-noAndroidX'
 }
 ```
 
