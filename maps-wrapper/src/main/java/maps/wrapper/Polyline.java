@@ -2,6 +2,7 @@ package maps.wrapper;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,21 +18,21 @@ public class Polyline {
         this.huawei = huawei;
     }
 
-    public Polyline setColor(int value){
-        if (google != null)  this.google.setColor(value);
+    public Polyline setColor(int value) {
+        if (google != null) this.google.setColor(value);
         if (huawei != null) this.huawei.setColor(value);
         return this;
     }
 
-    public int getColor(){
+    public int getColor() {
         if (google != null) return google.getColor();
         if (huawei != null) return huawei.getColor();
         return -1;
     }
 
-    public void setStartCap(@NonNull Cap value){
-        if (google!= null) google.setStartCap(value.gCap);
-        if (huawei!= null) huawei.setStartCap(value.hCap);
+    public void setStartCap(@NonNull Cap value) {
+        if (google != null) google.setStartCap(value.gCap);
+        if (huawei != null) huawei.setStartCap(value.hCap);
     }
 
     public final Cap getStartCap() {
@@ -63,10 +64,10 @@ public class Polyline {
     }
 
     public void setPattern(@Nullable List<PatternItem> value) {
-        if (value != null){
-            List<com.huawei.hms.maps.model.PatternItem> hList =  new ArrayList<>();
-            List<com.google.android.gms.maps.model.PatternItem>gList = new ArrayList<>();
-            for (PatternItem item:value) {
+        if (value != null) {
+            List<com.huawei.hms.maps.model.PatternItem> hList = new ArrayList<>();
+            List<com.google.android.gms.maps.model.PatternItem> gList = new ArrayList<>();
+            for (PatternItem item : value) {
                 hList.add(item.hPattern);
                 gList.add(item.gPattern);
             }
@@ -76,24 +77,24 @@ public class Polyline {
 
     }
 
-    public List<PatternItem> getPatternItem(){
+    public List<PatternItem> getPatternItem() {
         List<PatternItem> list = new ArrayList<>();
         if (google != null) {
-            List<com.google.android.gms.maps.model.PatternItem> gList =  google.getPattern();
-            for (com.google.android.gms.maps.model.PatternItem item:gList){
+            List<com.google.android.gms.maps.model.PatternItem> gList = google.getPattern();
+            for (com.google.android.gms.maps.model.PatternItem item : gList) {
                 list.add(new PatternItem(item, null));
             }
         }
-        if (huawei != null){
-            List<com.huawei.hms.maps.model.PatternItem> hList =  huawei.getPattern();
-            for (com.huawei.hms.maps.model.PatternItem item:hList){
+        if (huawei != null) {
+            List<com.huawei.hms.maps.model.PatternItem> hList = huawei.getPattern();
+            for (com.huawei.hms.maps.model.PatternItem item : hList) {
                 list.add(new PatternItem(null, item));
             }
         }
         return list;
     }
 
-    public void setWidth(float value){
+    public void setWidth(float value) {
         if (google != null) google.setWidth(value);
         if (huawei != null) huawei.setWidth(value);
     }
@@ -128,7 +129,7 @@ public class Polyline {
         return null;
     }
 
-    public void setClickable(boolean value){
+    public void setClickable(boolean value) {
         if (google != null) google.setClickable(value);
         if (huawei != null) huawei.setClickable(value);
     }

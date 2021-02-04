@@ -5,7 +5,7 @@ public class BitmapDescriptor {
     com.google.android.gms.maps.model.BitmapDescriptor google;
 
     BitmapDescriptor(com.huawei.hms.maps.model.BitmapDescriptor huawei,
-                            com.google.android.gms.maps.model.BitmapDescriptor google) {
+                     com.google.android.gms.maps.model.BitmapDescriptor google) {
         this.huawei = huawei;
         this.google = google;
     }

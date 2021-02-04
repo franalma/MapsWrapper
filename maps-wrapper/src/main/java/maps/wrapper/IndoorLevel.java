@@ -22,9 +22,9 @@ public class IndoorLevel {
         return null;
     }
 
-    public  void activate() {
-        if (google != null)  google.activate();
-        if (huawei != null)  huawei.activate();
+    public void activate() {
+        if (google != null) google.activate();
+        if (huawei != null) huawei.activate();
     }
 
 

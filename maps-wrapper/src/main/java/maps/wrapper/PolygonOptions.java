@@ -1,6 +1,7 @@
 package maps.wrapper;
 
 import androidx.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,9 +24,9 @@ public class PolygonOptions {
     }
 
     public final PolygonOptions add(LatLng... values) {
-        com.huawei.hms.maps.model.LatLng [] hLat = new  com.huawei.hms.maps.model.LatLng [values.length];
-        com.google.android.gms.maps.model.LatLng [] gLat = new com.google.android.gms.maps.model.LatLng [values.length];
-        for(int i = 0; i<values.length;i++){
+        com.huawei.hms.maps.model.LatLng[] hLat = new com.huawei.hms.maps.model.LatLng[values.length];
+        com.google.android.gms.maps.model.LatLng[] gLat = new com.google.android.gms.maps.model.LatLng[values.length];
+        for (int i = 0; i < values.length; i++) {
             hLat[i] = values[i].huawei;
             gLat[i] = values[i].google;
         }
@@ -39,13 +40,13 @@ public class PolygonOptions {
         final List<com.huawei.hms.maps.model.LatLng> hList = new ArrayList<>();
         final List<com.google.android.gms.maps.model.LatLng> gList = new ArrayList<>();
         Iterator<LatLng> iterator = values.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             LatLng item = iterator.next();
-            System.out.println("----->item: "+item.hashCode());
+            System.out.println("----->item: " + item.hashCode());
             hList.add(item.huawei);
             gList.add(item.google);
         }
-        Iterable<com.huawei.hms.maps.model.LatLng>hIterator = new Iterable<com.huawei.hms.maps.model.LatLng>() {
+        Iterable<com.huawei.hms.maps.model.LatLng> hIterator = new Iterable<com.huawei.hms.maps.model.LatLng>() {
             @NonNull
             @Override
             public Iterator<com.huawei.hms.maps.model.LatLng> iterator() {
@@ -53,7 +54,7 @@ public class PolygonOptions {
             }
         };
 
-        final Iterable<com.google.android.gms.maps.model.LatLng>gIterator = new Iterable<com.google.android.gms.maps.model.LatLng>() {
+        final Iterable<com.google.android.gms.maps.model.LatLng> gIterator = new Iterable<com.google.android.gms.maps.model.LatLng>() {
             @NonNull
             @Override
             public Iterator<com.google.android.gms.maps.model.LatLng> iterator() {
@@ -66,8 +67,8 @@ public class PolygonOptions {
     }
 
     public final PolygonOptions zIndex(float value) {
-       huawei = huawei.zIndex(value);
-       google = google.zIndex(value);
+        huawei = huawei.zIndex(value);
+        google = google.zIndex(value);
         return this;
     }
 
@@ -77,7 +78,7 @@ public class PolygonOptions {
         return this;
     }
 
-    public  PolygonOptions geodesic(boolean value) {
+    public PolygonOptions geodesic(boolean value) {
         huawei = huawei.geodesic(value);
         google = google.geodesic(value);
         return this;
@@ -89,16 +90,16 @@ public class PolygonOptions {
         return this;
     }
 
-    public PolygonOptions addHole(Iterable<LatLng> values){
+    public PolygonOptions addHole(Iterable<LatLng> values) {
         final List<com.huawei.hms.maps.model.LatLng> hList = new ArrayList<>();
         final List<com.google.android.gms.maps.model.LatLng> gList = new ArrayList<>();
         Iterator<LatLng> iterator = values.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             LatLng item = iterator.next();
             hList.add(item.huawei);
             gList.add(item.google);
         }
-        Iterable<com.huawei.hms.maps.model.LatLng>hIterator = new Iterable<com.huawei.hms.maps.model.LatLng>() {
+        Iterable<com.huawei.hms.maps.model.LatLng> hIterator = new Iterable<com.huawei.hms.maps.model.LatLng>() {
             @NonNull
             @Override
             public Iterator<com.huawei.hms.maps.model.LatLng> iterator() {
@@ -106,7 +107,7 @@ public class PolygonOptions {
             }
         };
 
-        final Iterable<com.google.android.gms.maps.model.LatLng>gIterator = new Iterable<com.google.android.gms.maps.model.LatLng>() {
+        final Iterable<com.google.android.gms.maps.model.LatLng> gIterator = new Iterable<com.google.android.gms.maps.model.LatLng>() {
             @NonNull
             @Override
             public Iterator<com.google.android.gms.maps.model.LatLng> iterator() {
@@ -120,9 +121,9 @@ public class PolygonOptions {
 
 
     public final PolygonOptions strokeWidth(float value) {
-       huawei = huawei.strokeWidth(value);
-       google = google.strokeWidth(value);
-       return this;
+        huawei = huawei.strokeWidth(value);
+        google = google.strokeWidth(value);
+        return this;
     }
 
     public final PolygonOptions strokeColor(int value) {
