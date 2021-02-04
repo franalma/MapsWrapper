@@ -222,9 +222,39 @@ public class ExtendedMap {
         if (isGoogle()) googleMap.setBuildingsEnabled(value);
     }
 
-    public void setMapType(int type) {
-        if (isHuawei()) huaweiMap.setMapType(type);
-        if (isGoogle()) googleMap.setMapType(type);
+    /**
+     * This is not part of any API (GMS or HMS).
+     * Call it to check if the underlying map accepts this mapType. Scenario: should the app still show an UI element the user can press to switch to a different mapType if that's not supported?
+     *
+     * @param mapType the desired map type to evaluate, i.e. ExtendedMap.MAP_TYPE_HYBRID
+     * @return
+     */
+    public boolean isMapTypeSupported(int mapType) {
+        if (isHuawei()) {
+            //https://developer.huawei.com/consumer/en/doc/development/HMSCore-References-V5/huaweimap-0000001050151757-V5
+            switch (mapType) {
+                case ExtendedMap.MAP_TYPE_HYBRID:
+                case ExtendedMap.MAP_TYPE_SATELLITE:
+                case ExtendedMap.MAP_TYPE_TERRAIN:
+                    return false;
+                default:
+                    return true;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    public void setMapType(int mapType) {
+        if (isHuawei()) {
+            if (mapType == ExtendedMap.MAP_TYPE_HYBRID) {
+                // Hybrid not yet supported, instead of an empty map, just show the normal layer
+                huaweiMap.setMapType(HuaweiMap.MAP_TYPE_NORMAL);
+            } else {
+                huaweiMap.setMapType(mapType);
+            }
+        }
+        if (isGoogle()) googleMap.setMapType(mapType);
     }
 
     public int getMapType() {
