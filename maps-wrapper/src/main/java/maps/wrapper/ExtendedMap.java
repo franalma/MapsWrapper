@@ -547,12 +547,12 @@ public class ExtendedMap {
 
             @Override
             public void onMarkerDrag(com.huawei.hms.maps.model.Marker marker) {
-                listener.onMarkerDragStart(new Marker(null, marker));
+                listener.onMarkerDrag(new Marker(null, marker));
             }
 
             @Override
             public void onMarkerDragEnd(com.huawei.hms.maps.model.Marker marker) {
-                listener.onMarkerDragStart(new Marker(null, marker));
+                listener.onMarkerDragEnd(new Marker(null, marker));
             }
         });
     }
