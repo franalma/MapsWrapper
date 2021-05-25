@@ -33,4 +33,14 @@ public class LatLngTest {
         assertEquals(expectedLat, latLng.huawei.latitude, 0);
         assertEquals(lng, latLng.huawei.longitude, 0);
     }
+
+    @Test
+    public void equalCoordinates() {
+        double lat = 45.630853;
+        double lng = 5.60854;
+        LatLng latLng1 = new LatLng(lat, lng);
+        LatLng latLng2 = new LatLng(lat, lng);
+
+        assertEquals(latLng1, latLng2);
+    }
 }
