@@ -2,7 +2,6 @@ package maps.wrapper;
 
 import android.location.Location;
 import android.view.View;
-
 import com.google.android.gms.maps.GoogleMap;
 import com.huawei.hms.maps.HuaweiMap;
 
@@ -106,6 +105,14 @@ public class ExtendedMap {
         boolean onMyLocationButtonClick();
     }
 
+    public interface OnMyLocationChangeListener{
+        void onMyLocationChange(Location location);
+    }
+
+    public interface OnCameraChangeListener{
+        void onCameraChange(CameraPosition cameraPosition);
+    }
+
     ExtendedMap(HuaweiMap huaweiMap) {
         this.huaweiMap = huaweiMap;
     }
@@ -153,6 +160,7 @@ public class ExtendedMap {
             });
         }
     }
+
 
     public void setOnCameraIdleListener(final OnCameraIdleListener listener) {
         if (isHuawei()) {
@@ -206,6 +214,34 @@ public class ExtendedMap {
                 @Override
                 public void onCameraMoveCanceled() {
                     listener.onCameraMoveCanceled();
+                }
+            });
+        }
+    }
+
+    public void setOnMyLocationChangeListener (final OnMyLocationChangeListener listener){
+        if (isHuawei()) {
+
+        }
+        else{
+            googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+                @Override
+                public void onMyLocationChange(Location location) {
+                    listener.onMyLocationChange(location);
+                }
+            });
+        }
+    }
+
+    public void setOnCamaraChangeListener(final OnCameraChangeListener listener){
+        if (isHuawei()){
+
+        }
+        else{
+            googleMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+                @Override
+                public void onCameraChange(com.google.android.gms.maps.model.CameraPosition cameraPosition) {
+                    listener.onCameraChange(new CameraPosition(cameraPosition, null));
                 }
             });
         }
@@ -282,6 +318,8 @@ public class ExtendedMap {
             cameraPosition = new CameraPosition(null, huaweiMap.getCameraPosition());
         return cameraPosition;
     }
+
+
 
 
     public UiSettings getUiSettings() {
