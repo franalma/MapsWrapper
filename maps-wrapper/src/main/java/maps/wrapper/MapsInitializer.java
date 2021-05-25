@@ -3,15 +3,15 @@ package maps.wrapper;
 import android.content.Context;
 
 public class MapsInitializer {
-    public static void initialize(Context context){
-        try{
+    public static void initialize(Context context) {
+        try {
             com.google.android.gms.maps.MapsInitializer.initialize(context);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        try{
+        try {
             com.huawei.hms.maps.MapsInitializer.initialize(context);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

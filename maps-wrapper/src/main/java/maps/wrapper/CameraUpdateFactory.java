@@ -1,6 +1,5 @@
 package maps.wrapper;
 
-import android.graphics.Camera;
 import android.graphics.Point;
 
 public class CameraUpdateFactory {

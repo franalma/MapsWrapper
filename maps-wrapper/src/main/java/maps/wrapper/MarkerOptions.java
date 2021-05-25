@@ -7,18 +7,18 @@ public class MarkerOptions {
     com.huawei.hms.maps.model.MarkerOptions huawei;
     com.google.android.gms.maps.model.MarkerOptions google;
 
-    public MarkerOptions( ) {
+    public MarkerOptions() {
         this.huawei = new com.huawei.hms.maps.model.MarkerOptions();
         this.google = new com.google.android.gms.maps.model.MarkerOptions();
     }
 
-    public  MarkerOptions position(@NonNull LatLng value) {
+    public MarkerOptions position(@NonNull LatLng value) {
         google = google.position(value.google);
         huawei = huawei.position(value.huawei);
-       return this;
+        return this;
     }
 
-    public  MarkerOptions zIndex(float value) {
+    public MarkerOptions zIndex(float value) {
         google = google.zIndex(value);
         huawei = huawei.zIndex(value);
         return this;
@@ -31,14 +31,14 @@ public class MarkerOptions {
     }
 
     public final MarkerOptions anchor(float x, float y) {
-        google = google.anchor(x,y);
-        huawei = huawei.anchorMarker(x,y);
+        google = google.anchor(x, y);
+        huawei = huawei.anchorMarker(x, y);
         return this;
     }
 
     public final MarkerOptions infoWindowAnchor(float x, float y) {
-        google = google.infoWindowAnchor(x,y);
-        huawei = huawei.infoWindowAnchor(x,y);
+        google = google.infoWindowAnchor(x, y);
+        huawei = huawei.infoWindowAnchor(x, y);
         return this;
     }
 

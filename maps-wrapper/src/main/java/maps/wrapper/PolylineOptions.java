@@ -8,18 +8,18 @@ public class PolylineOptions {
     com.huawei.hms.maps.model.PolylineOptions hOptions;
     com.google.android.gms.maps.model.PolylineOptions gOptions;
 
-    public PolylineOptions(){
+    public PolylineOptions() {
         gOptions = new com.google.android.gms.maps.model.PolylineOptions();
         hOptions = new com.huawei.hms.maps.model.PolylineOptions();
 
     }
 
-    public  PolylineOptions add(LatLng... values) {
-        com.huawei.hms.maps.model.LatLng [] listH = new com.huawei.hms.maps.model.LatLng[values.length];
+    public PolylineOptions add(LatLng... values) {
+        com.huawei.hms.maps.model.LatLng[] listH = new com.huawei.hms.maps.model.LatLng[values.length];
         com.google.android.gms.maps.model.LatLng[] listG = new com.google.android.gms.maps.model.LatLng[values.length];
-        for (int i = 0;i<values.length;i++) {
+        for (int i = 0; i < values.length; i++) {
             listH[i] = values[i].huawei;
-            listG[i] =values[i].google;
+            listG[i] = values[i].google;
         }
         hOptions = hOptions.add(listH);
         gOptions = gOptions.add(listG);
@@ -27,8 +27,8 @@ public class PolylineOptions {
     }
 
     public PolylineOptions add(LatLng value) {
-       hOptions =  hOptions.add(value.huawei);
-       gOptions = gOptions.add(value.google);
+        hOptions = hOptions.add(value.huawei);
+        gOptions = gOptions.add(value.google);
         return this;
     }
 
@@ -37,7 +37,7 @@ public class PolylineOptions {
         List<com.google.android.gms.maps.model.LatLng> gList = new ArrayList<>();
         List<com.huawei.hms.maps.model.LatLng> hList = new ArrayList<>();
 
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             LatLng item = iterator.next();
             gList.add(item.google);
             hList.add(item.huawei);
@@ -68,16 +68,15 @@ public class PolylineOptions {
 
 
     public PolylineOptions jointType(int value) {
-       hOptions =  hOptions.jointType(value);
-       gOptions = gOptions.jointType(value);
+        hOptions = hOptions.jointType(value);
+        gOptions = gOptions.jointType(value);
         return this;
     }
 
 
-
     public PolylineOptions visible(boolean value) {
-       hOptions =  hOptions.visible(value);
-       gOptions = gOptions.visible(value);
+        hOptions = hOptions.visible(value);
+        gOptions = gOptions.visible(value);
         return this;
     }
 

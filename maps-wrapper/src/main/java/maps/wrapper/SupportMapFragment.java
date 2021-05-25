@@ -10,9 +10,13 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.huawei.hms.maps.HuaweiMap;
-import maps.wrapper.R;
 
 
 public class SupportMapFragment extends Fragment {
@@ -23,22 +27,21 @@ public class SupportMapFragment extends Fragment {
         return new SupportMapFragment();
     }
 
-    public void getMapAsync(final OnMapReadyCallback callback){
+    public void getMapAsync(final OnMapReadyCallback callback) {
 
-        if (isGoogleMap()){
+        if (isGoogleMap()) {
             System.out.println("---getting google map");
-            final com.google.android.gms.maps.SupportMapFragment googleFragment = (com.google.android.gms.maps.SupportMapFragment)mapFragment;
+            final com.google.android.gms.maps.SupportMapFragment googleFragment = (com.google.android.gms.maps.SupportMapFragment) mapFragment;
             googleFragment.getMapAsync(new com.google.android.gms.maps.OnMapReadyCallback() {
                 @Override
                 public void onMapReady(GoogleMap googleMap) {
                     callback.onMapReady(new ExtendedMap(googleMap));
                 }
             });
-        }
-        else if (isHuaweiMap()){
+        } else if (isHuaweiMap()) {
             System.out.println("---getting huawei map");
             final com.huawei.hms.maps.SupportMapFragment fragment = (com.huawei.hms.maps.SupportMapFragment) mapFragment;
-            System.out.println("---- fragment: "+fragment);
+            System.out.println("---- fragment: " + fragment);
             fragment.getMapAsync(new com.huawei.hms.maps.OnMapReadyCallback() {
                 @Override
                 public void onMapReady(HuaweiMap huaweiMap) {
@@ -49,18 +52,18 @@ public class SupportMapFragment extends Fragment {
         }
     }
 
-    private boolean isGoogleMap(){
+    private boolean isGoogleMap() {
         return mapFragment instanceof com.google.android.gms.maps.SupportMapFragment;
     }
 
-    private boolean isHuaweiMap(){
+    private boolean isHuaweiMap() {
         return mapFragment instanceof com.huawei.hms.maps.SupportMapFragment;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_container,container,false);
+        return inflater.inflate(R.layout.fragment_container, container, false);
     }
 
     @Override
@@ -76,14 +79,13 @@ public class SupportMapFragment extends Fragment {
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.mapResolution);
         String type = array.getString(R.styleable.mapResolution_type);
         mapResolverStrategy = MapResolverStrategy.fromValue(type);
-        try{
+        try {
             mapFragment = MapResolverStrategy.useRequiredMapFragment(mapResolverStrategy, context);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         array.recycle();
     }
-
 
 
 }

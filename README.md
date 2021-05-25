@@ -2,16 +2,11 @@
 
 [![](https://jitpack.io/v/franalma/MapsWrapper.svg)](https://jitpack.io/#franalma/MapsWrapper/)
 
-Wrapper that unifies Google and Huawei maps in a single API.
+Wrapper that unifies Google Maps (GM) and Huawei Maps (HM) SDKs in a single API. At runtime, the wrapper routes the calls according to the [map resolution strategy]( #map-resolution-strategy) which by default will use GM first and HM second (if GM is not available). On the new HMS Huawei devices, only HM is available.
 
 Use this branch when the wrapper needs to be integrated in apps that didn't yet migrate to [AndroidX](https://developer.android.com/jetpack/androidx/migrate). Because of that, the used versions of Google Maps SDK  and Huawei Map Kit are not the latest, but rather specific ones that depend on the support libraries.
 
 ## Usage
-
-The API is identical to Google and Huawei Maps API except the map that has been renamed from
-`GoogleMap`/`HuaweiMap` to `ExtendedMap`. The rest of the classes and methods have exactly the same names,
-so generally by replacing the Google or Huawei imports with this library imports it should do
-the trick.
 
 Here's an activity layout with a `SupportMapFragment`:
 
@@ -68,6 +63,8 @@ public class BasicMapDemoActivity extends AppCompatActivity implements OnMapRead
 }
 
 ```
+
+##### Map resolution strategy
 
 Note the `app:type="auto"` attribute in the fragment layout.
 This defines the map resolution strategy. Currently 5 strategies are available:
@@ -127,7 +124,17 @@ Note that you no longer need to define Google Maps or Huawei Maps dependencies e
 
 ## Obtaining an API key
 
-Both Google Maps and Huawei Maps require an API key. Follow the instructions on how to setup your app:
+Both maps SDKs require an API key. Follow the instructions on how to setup your app:
 
 - Google Maps: https://developers.google.com/maps/documentation/android-sdk/start
 - Huawei Maps: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-sdk-config-agc-0000001061560289-V5
+
+Keep in mind that HM requires by default client authentication -> see https://github.com/abusuioc/from-gms-to-hms#authenticate-your-app
+
+
+
+## Is the desired map type supported?
+
+For now, HM lacks terrain information and satellite imagery. You can call`ExtendedMap.isMapTypeSupported()` ([go to definition](https://github.com/franalma/MapsWrapper/blob/8271e3a216d826277621f8501945d83bc8d56c53/maps-wrapper/src/main/java/maps/wrapper/ExtendedMap.java#L232)) to check at runtime if the underlying map supports the desired map type and react accordingly (i.e. by hiding the UI element that switches to satellite view).
+
+Requesting a map type `ExtendedMap.MAP_TYPE_HYBRID` will display on HM the equivalent of `ExtendedMap.MAP_TYPE_NORMAL` .

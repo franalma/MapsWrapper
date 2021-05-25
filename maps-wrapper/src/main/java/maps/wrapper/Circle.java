@@ -31,14 +31,14 @@ public class Circle {
     }
 
     public void setCenter(LatLng latLng) {
-        if (hmsCircle != null)  hmsCircle.setCenter(latLng.huawei);
-        if (gmsCircle != null)  gmsCircle.setCenter(latLng.google);
+        if (hmsCircle != null) hmsCircle.setCenter(latLng.huawei);
+        if (gmsCircle != null) gmsCircle.setCenter(latLng.google);
     }
 
 
     public void setRadius(double value) {
-        if (hmsCircle != null)  hmsCircle.setRadius(value);
-        if (gmsCircle != null)  gmsCircle.setRadius(value);
+        if (hmsCircle != null) hmsCircle.setRadius(value);
+        if (gmsCircle != null) gmsCircle.setRadius(value);
     }
 
     public double getRadius() {
@@ -48,8 +48,8 @@ public class Circle {
     }
 
     public void setStrokeWidth(float value) {
-        if (hmsCircle != null)  hmsCircle.setStrokeWidth(value);
-        if (gmsCircle != null)  gmsCircle.setStrokeWidth(value);
+        if (hmsCircle != null) hmsCircle.setStrokeWidth(value);
+        if (gmsCircle != null) gmsCircle.setStrokeWidth(value);
     }
 
     public float getStrokeWidth() {
@@ -59,8 +59,8 @@ public class Circle {
     }
 
     public void setStrokeColor(int value) {
-        if (hmsCircle != null)  hmsCircle.setStrokeColor(value);
-        if (gmsCircle != null)  gmsCircle.setStrokeColor(value);
+        if (hmsCircle != null) hmsCircle.setStrokeColor(value);
+        if (gmsCircle != null) gmsCircle.setStrokeColor(value);
     }
 
     public int getStrokeColor() {
@@ -70,11 +70,11 @@ public class Circle {
     }
 
     public void setStrokePattern(@Nullable List<PatternItem> values) {
-        if (values != null){
+        if (values != null) {
             List<com.google.android.gms.maps.model.PatternItem> vGoogle = new ArrayList<>();
             List<com.huawei.hms.maps.model.PatternItem> vHuawei = new ArrayList<>();
 
-            for (PatternItem item:values){
+            for (PatternItem item : values) {
                 vGoogle.add(item.gPattern);
                 vHuawei.add(item.hPattern);
             }
@@ -89,15 +89,15 @@ public class Circle {
         List<PatternItem> values = new ArrayList<>();
         List<com.google.android.gms.maps.model.PatternItem> vGoogle;
         List<com.huawei.hms.maps.model.PatternItem> vHuawei;
-        if (gmsCircle != null){
+        if (gmsCircle != null) {
             vGoogle = gmsCircle.getStrokePattern();
-            for (com.google.android.gms.maps.model.PatternItem item: vGoogle){
+            for (com.google.android.gms.maps.model.PatternItem item : vGoogle) {
                 values.add(new PatternItem(item, null));
             }
         }
-        if (hmsCircle != null){
+        if (hmsCircle != null) {
             vHuawei = hmsCircle.getStrokePattern();
-            for (com.huawei.hms.maps.model.PatternItem item: vHuawei){
+            for (com.huawei.hms.maps.model.PatternItem item : vHuawei) {
                 values.add(new PatternItem(null, item));
             }
         }
@@ -106,8 +106,8 @@ public class Circle {
     }
 
     public void setFillColor(int value) {
-        if (hmsCircle != null)  hmsCircle.setFillColor(value);
-        if (gmsCircle != null)  gmsCircle.setFillColor(value);
+        if (hmsCircle != null) hmsCircle.setFillColor(value);
+        if (gmsCircle != null) gmsCircle.setFillColor(value);
     }
 
     public int getFillColor() {
@@ -117,8 +117,8 @@ public class Circle {
     }
 
     public void setZIndex(float value) {
-        if (hmsCircle != null)  hmsCircle.setZIndex(value);
-        if (gmsCircle != null)  gmsCircle.setZIndex(value);
+        if (hmsCircle != null) hmsCircle.setZIndex(value);
+        if (gmsCircle != null) gmsCircle.setZIndex(value);
     }
 
     public float getZIndex() {
@@ -128,8 +128,8 @@ public class Circle {
     }
 
     public void setVisible(boolean value) {
-        if (hmsCircle != null)  hmsCircle.setVisible(value);
-        if (gmsCircle != null)  gmsCircle.setVisible(value);
+        if (hmsCircle != null) hmsCircle.setVisible(value);
+        if (gmsCircle != null) gmsCircle.setVisible(value);
     }
 
     public boolean isVisible() {
@@ -139,8 +139,8 @@ public class Circle {
     }
 
     public void setClickable(boolean value) {
-        if (hmsCircle != null)  hmsCircle.setClickable(value);
-        if (gmsCircle != null)  gmsCircle.setClickable(value);
+        if (hmsCircle != null) hmsCircle.setClickable(value);
+        if (gmsCircle != null) gmsCircle.setClickable(value);
 
     }
 
@@ -151,8 +151,8 @@ public class Circle {
     }
 
     public <T> void setTag(@Nullable T value) {
-        if (hmsCircle != null)  hmsCircle.setTag(value);
-        if (gmsCircle != null)  gmsCircle.setTag(value);
+        if (hmsCircle != null) hmsCircle.setTag(value);
+        if (gmsCircle != null) gmsCircle.setTag(value);
     }
 
     @Nullable
@@ -161,10 +161,6 @@ public class Circle {
         if (gmsCircle != null) return gmsCircle.getTag();
         return null;
     }
-
-
-
-
 
 
 }
