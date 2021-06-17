@@ -106,6 +106,14 @@ public class ExtendedMap {
         boolean onMyLocationButtonClick();
     }
 
+    public interface OnMyLocationChangeListener{
+        void onMyLocationChange(Location location);
+    }
+
+    public interface  OnCameraChangeListener{
+        void onCameraChange(CameraPosition cameraPosition);
+    }
+
     ExtendedMap(HuaweiMap huaweiMap) {
         this.huaweiMap = huaweiMap;
     }
@@ -206,6 +214,34 @@ public class ExtendedMap {
                 @Override
                 public void onCameraMoveCanceled() {
                     listener.onCameraMoveCanceled();
+                }
+            });
+        }
+    }
+
+    public void setOnMyLocationChangeListener(final OnMyLocationChangeListener listener){
+        if (isHuawei())  {
+
+        }else{
+            if (isGoogle()){
+                googleMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+                    @Override
+                    public void onMyLocationChange(android.location.Location location) {
+                        listener.onMyLocationChange(location);
+                    }
+                });
+            }
+        }
+    }
+
+    public void setOnCameraChangeListener(final OnCameraChangeListener listener) {
+        if (isHuawei())  {
+//            huaweiMap.setoncam
+        }
+        if (isGoogle()){
+            googleMap.setOnCameraChangeListener(new GoogleMap.OnCameraChangeListener() {
+                public void onCameraChange(com.google.android.gms.maps.model.CameraPosition  cameraPosition) {
+                    listener.onCameraChange(new CameraPosition(cameraPosition,null));
                 }
             });
         }

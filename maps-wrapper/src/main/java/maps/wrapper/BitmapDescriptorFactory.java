@@ -20,7 +20,7 @@ public class BitmapDescriptorFactory {
         try {
             google = com.google.android.gms.maps.model.BitmapDescriptorFactory.fromResource(id);
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         try {
             huawei = com.huawei.hms.maps.model.BitmapDescriptorFactory.fromResource(id);

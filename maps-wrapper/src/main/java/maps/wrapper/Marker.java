@@ -141,4 +141,10 @@ public class Marker {
         if (google != null) google.remove();
         else if (huawei != null) huawei.remove();
     }
+
+    public void hideInfoWindow(){
+        if (google != null) google.hideInfoWindow();
+        if (huawei != null) huawei.hideInfoWindow();
+    }
+
 }

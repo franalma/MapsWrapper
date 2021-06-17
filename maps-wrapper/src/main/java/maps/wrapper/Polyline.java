@@ -134,5 +134,10 @@ public class Polyline {
         if (huawei != null) huawei.setClickable(value);
     }
 
+    public void remove(){
+        if (google != null) google.remove();
+        if (huawei != null) huawei.remove();
+    }
+
 
 }
