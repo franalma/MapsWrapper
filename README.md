@@ -114,7 +114,7 @@ Then add the actual library dependency in your app `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.franalma:MapsWrapper:1.1.9'
+    implementation 'com.github.franalma:MapsWrapper:1.1.11'
 }
 ```
 
