@@ -147,4 +147,25 @@ public class Marker {
         if (huawei != null) huawei.hideInfoWindow();
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) {
+            return true;
+        } else if (!(other instanceof Marker)) {
+            return false;
+        } else if (google != null) {
+            return google.equals(((Marker) other).google);
+        } else if (huawei != null) {
+            return huawei.equals(((Marker) other).huawei);
+        } else {
+            throw new UnsupportedOperationException("Missing underlying GMS/HMS Marker");
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        if (google != null) return google.hashCode();
+        if (huawei != null) return huawei.hashCode();
+        throw new UnsupportedOperationException("Missing underlying GMS/HMS Marker");
+    }
 }
