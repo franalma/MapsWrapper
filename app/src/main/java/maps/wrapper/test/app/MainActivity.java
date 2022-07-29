@@ -16,8 +16,10 @@ package maps.wrapper.test.app;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -84,11 +86,21 @@ public final class MainActivity extends AppCompatActivity
         list.setOnItemClickListener(this);
         list.setEmptyView(findViewById(R.id.empty));
 
-        if (getString(R.string.maps_api_key).isEmpty()) {
-            Toast.makeText(this, "Add your own API key in ApiDemos/java/secure.properties as MAPS_API_KEY=YOUR_API_KEY", Toast.LENGTH_LONG).show();
+        if (TextUtils.isEmpty(getGMapsApiKeyFromApplicationMetadata(this))) {
+            Toast.makeText(this, "Add the Google Maps API key in local.properties as GMAPS_API_KEY=<your_API_key>", Toast.LENGTH_LONG).show();
         }
     }
 
+    public static String getGMapsApiKeyFromApplicationMetadata(Context context) {
+        try {
+            Bundle bundle = context.getPackageManager()
+                    .getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA)
+                    .metaData;
+            return bundle.getString("com.google.android.geo.API_KEY");
+        } catch (PackageManager.NameNotFoundException e) {
+            return null;
+        }
+    }
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         DemoDetails demo = (DemoDetails) parent.getAdapter().getItem(position);

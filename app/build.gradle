@@ -1,14 +1,20 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+apply plugin: 'com.huawei.agconnect'
+
+def keystorePropertiesFile = project.file("keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 32
 
     signingConfigs {
         config {
-            keyAlias 'key0'
-            keyPassword '123456'
-            storeFile file('android_ks.jks')
-            storePassword '123456'
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
         }
     }
 
@@ -21,28 +27,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-
-        // Read the API key from ApiDemos/java/secure.properties into R.string.maps_api_key
-        def secureProps = new Properties()
-        if (file("../secure.properties").exists()) {
-            file("../secure.properties")?.withInputStream { secureProps.load(it) }
-        }
-        resValue "string", "maps_api_key", (secureProps.getProperty("MAPS_API_KEY") ?: "")
-
-        // To add your Maps API key to this project:
-        // 1. Create a file ApiDemos/java/secure.properties
-        // 2. Add this line, where YOUR_API_KEY is your API key:
-        //        MAPS_API_KEY=YOUR_API_KEY
-
-
     }
 
     buildTypes {
-        release {
-            signingConfig signingConfigs.config
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
         debug {
             signingConfig signingConfigs.config
         }
@@ -54,7 +41,7 @@ android {
     }
 
 }
-apply plugin: 'com.huawei.agconnect'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 

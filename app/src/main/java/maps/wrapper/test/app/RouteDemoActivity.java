@@ -179,7 +179,7 @@ public class RouteDemoActivity extends AppCompatActivity implements OnMapReadyCa
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(client)
                     .build();
-            Call<Directions> directionsCall = runGetDirections("Toronto", "Montreal", getString(R.string.maps_api_key));
+            Call<Directions> directionsCall = runGetDirections("Toronto", "Montreal", MainActivity.getGMapsApiKeyFromApplicationMetadata(RouteDemoActivity.this));
             try{
                 Response<Directions> response = directionsCall.execute();
                 if (response.isSuccessful() && response.body() != null){
