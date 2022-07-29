@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 32
 
     signingConfigs {
         config {
@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "maps.wrapper.test.app"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 32
         versionCode 1
         versionName "1.0"
 
