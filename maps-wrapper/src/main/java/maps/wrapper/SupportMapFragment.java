@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import com.google.android.gms.maps.GoogleMap;
 import com.huawei.hms.maps.HuaweiMap;
 
-
 public class SupportMapFragment extends Fragment {
     private MapResolverStrategy mapResolverStrategy;
     private Fragment mapFragment;
@@ -25,7 +24,6 @@ public class SupportMapFragment extends Fragment {
     }
 
     public void getMapAsync(final OnMapReadyCallback callback) {
-
         if (isGoogleMap()) {
             System.out.println("---getting google map");
             final com.google.android.gms.maps.SupportMapFragment googleFragment = (com.google.android.gms.maps.SupportMapFragment) mapFragment;

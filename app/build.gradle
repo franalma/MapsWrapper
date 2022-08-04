@@ -7,7 +7,7 @@ def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
 
     signingConfigs {
         config {
@@ -20,8 +20,8 @@ android {
 
     defaultConfig {
         applicationId "maps.wrapper.demo"
-        minSdkVersion 19
-        targetSdkVersion 32
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
@@ -32,6 +32,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.config
+            minifyEnabled false
         }
     }
 

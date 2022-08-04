@@ -35,13 +35,13 @@ public enum MapResolverStrategy {
             case FORCE_GOOGLE:
                 return getGoogleFragment();
             case FORCE_HUAWEI:
-                return getHuaweiFragment();
+                return getHuaweiFragment(context);
             case GOOGLE_THEN_HUAWEI: {
                 if (ApiAvailability.isGoogleAvailable(context)) return getGoogleFragment();
-                if (ApiAvailability.isHuaweiAvailable(context)) return getHuaweiFragment();
+                if (ApiAvailability.isHuaweiAvailable(context)) return getHuaweiFragment(context);
             }
             case HUAWEI_THEN_GOOGLE: {
-                if (ApiAvailability.isHuaweiAvailable(context)) return getHuaweiFragment();
+                if (ApiAvailability.isHuaweiAvailable(context)) return getHuaweiFragment(context);
                 if (ApiAvailability.isGoogleAvailable(context)) return getGoogleFragment();
             }
         }
@@ -77,6 +77,7 @@ public enum MapResolverStrategy {
     }
 
     private static com.huawei.hms.maps.MapView getHuaweiMapView(Context context, AttributeSet attr, int defStyle) {
+        com.huawei.hms.maps.MapsInitializer.initialize(context);
         return new com.huawei.hms.maps.MapView(context, attr, defStyle);
     }
 
@@ -84,7 +85,8 @@ public enum MapResolverStrategy {
         return com.google.android.gms.maps.SupportMapFragment.newInstance();
     }
 
-    private static Fragment getHuaweiFragment() {
+    private static Fragment getHuaweiFragment(Context context) {
+        com.huawei.hms.maps.MapsInitializer.initialize(context);
         return com.huawei.hms.maps.SupportMapFragment.newInstance();
     }
 
