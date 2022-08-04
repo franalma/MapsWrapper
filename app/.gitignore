@@ -1,2 +1,4 @@
 /build
 keystore.properties
+*.jks
+agconnect-services.json

@@ -1,0 +1,1 @@
+printf "storeFile=storeFile\nstorePassword=storePassword\nkeyAlias=keyAlias\nkeyPassword=keyPassword" >> app/keystore.properties

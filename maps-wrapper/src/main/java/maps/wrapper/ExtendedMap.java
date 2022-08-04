@@ -1,5 +1,6 @@
 package maps.wrapper;
 
+import android.annotation.SuppressLint;
 import android.location.Location;
 import android.view.View;
 
@@ -298,6 +299,7 @@ public class ExtendedMap {
         return -1;
     }
 
+    @SuppressLint("MissingPermission")
     public void setMyLocationEnabled(boolean value) {
         if (isHuawei()) huaweiMap.setMyLocationEnabled(value);
         if (isGoogle()) googleMap.setMyLocationEnabled(value);

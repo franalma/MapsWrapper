@@ -85,8 +85,6 @@ lint/tmp/
 #others
 secure.properties
 secure - Copy.properties
-app/agconnect-services.json
-app/android_ks.jks
 
 
 .idea/

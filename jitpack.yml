@@ -1,0 +1,3 @@
+before_install:
+   - chmod +x createMockKeystorePropertiesForJitpak.sh
+   - ./createMockKeystorePropertiesForJitpak.sh
