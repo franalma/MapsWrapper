@@ -2,9 +2,11 @@
 
 [![](https://jitpack.io/v/franalma/MapsWrapper.svg)](https://jitpack.io/#franalma/MapsWrapper/)
 
-Wrapper that unifies Google Maps (GM) and Huawei Maps (HM) SDKs in a single API. At runtime, the wrapper routes the calls according to the [map resolution strategy]( #map-resolution-strategy) which by default will use GM first and HM second (if GM is not available). On the new HMS Huawei devices, only HM is available.
+Wrapper that unifies Google Maps (**GM**) and Huawei Maps (**HM**) SDKs in a single API. At runtime, the wrapper routes the calls according to the [map resolution strategy]( #map-resolution-strategy) which by default will use GM first and HM second (if GM is not available). On the new HMS Huawei devices, only HM is available.
 
-The wrapper is mainly intended as an addition to an already existent GM implementation, when support for HM is also needed. Because the wrapper's API is 1:1 with the GM API (except the actual map that has been renamed from`GoogleMap`/`HuaweiMap` to `ExtendedMap`) replacing/renaming the current imports from `com.google.android.gms.maps.*`  to `maps.wrapper.*` would result in a working implementation on both GM and HM, in a couple of minutes of work. Explicit calls to `GoogleMap` need as well a rename to `ExtendedMap`.
+The wrapper is mainly intended as an addition to an already existent **GM** implementation, when support for **HM** is also needed. Because the wrapper's API is 1:1 with the **GM** API (except the actual map which has been renamed from`GoogleMap`/`HuaweiMap` to `ExtendedMap`) replacing/renaming the current imports from `com.google.android.gms.maps.*`  to `maps.wrapper.*` would result in a working implementation on both **GM** and **HM**, in a couple of minutes of work. Explicit calls to `GoogleMap` need as well a rename to `ExtendedMap`.
+
+
 
 ## Usage
 
@@ -66,23 +68,19 @@ public class BasicMapDemoActivity extends AppCompatActivity implements OnMapRead
 
 ##### Map resolution strategy
 
-Note the `app:type="auto"` attribute in the fragment layout.
-This defines the map resolution strategy. Currently 5 strategies are available:
+The `app:type="auto"` attribute in the fragment layout defines the map resolution strategy. Currently, 5 strategies are available:
 
 - `auto`: same as `google_then_huawei`.
-- `google_then_huawei`: tries to use Google Maps first. If not available
-falls back to Huawei. If not available either throws an error.
-- `huawei_then_google`: tries to use Huawei Maps first. If not available
-falls back to Google. If not available either throws an error.
-- `force_google`: tries to use Google Maps. If not available throws error.
-- `force_huawei`: tries to use Huawei Maps. If not available throws error.
+- `google_then_huawei`: tries to use **GM** first. If not available
+falls back to **HM**.
+- `huawei_then_google`: tries to use **HM** first. If not available
+falls back to **GM**.
+- `force_google`: tries to use only **GM**.
+- `force_huawei`: tries to use only **HM**.
 
-If no map resolution strategy is defined it defaults to the strategy defined in
+If no map resolution strategy is explicitly requested, it defaults to the strategy defined in
 `MapResolverStrategy.default`. By default this is `auto` but can be
-overridden programmatically.
-
-You can check the *testapplication* module for an example app that contains more exhaustive
-examples for each part of the maps API.
+overridden programmatically. In case the strategy cannot be satisfied (i.e. requesting `force_google` on an HMS device) `MapResolverException` will be thrown.
 
 
 
@@ -95,7 +93,7 @@ Some classes have enhanced API support:
 
 
 
-## Add as dependency
+## Add the wrapper as a dependency
 
 In your root `build.gradle` add [Jitpack](https://jitpack.io/) to the list of known repositories. Check that the Huawei and Google own repositories are there as well.
 
@@ -114,27 +112,27 @@ Then add the actual library dependency in your app `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.github.franalma:MapsWrapper:1.1.11'
+    implementation 'com.github.franalma:MapsWrapper:1.2.0'
 }
 ```
 
-Note that you no longer need to define Google Maps or Huawei Maps dependencies explicitly in your app's `build.gradle`, this library already has dependencies on both of them.
+You no longer need to explicitly define **GM** or **HM** dependencies in your app's `build.gradle` because the library takes care of that.
 
 
 
 ## Obtaining an API key
 
-Both maps SDKs require an API key. Follow the instructions on how to setup your app:
+Both maps SDKs require authentication. Follow the instructions on how to setup your app:
 
-- Google Maps: https://developers.google.com/maps/documentation/android-sdk/start
-- Huawei Maps: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-sdk-config-agc-0000001061560289-V5
+- **GM**: https://developers.google.com/maps/documentation/android-sdk/start
+- **HM**: https://developer.huawei.com/consumer/en/doc/development/HMSCore-Guides-V5/android-sdk-config-agc-0000001061560289-V5
 
-Keep in mind that HM requires by default client authentication -> see https://github.com/abusuioc/from-gms-to-hms#authenticate-your-app
+The demo project included in this repository is a fork of the official [Google Maps sample demos](https://github.com/googlemaps/android-samples) with all calls going through the wrapper. 
 
 
 
-## Is the desired map type supported?
+## Unsupported map types by HM
 
-For now, HM lacks terrain information and satellite imagery. You can call`ExtendedMap.isMapTypeSupported()` ([go to definition](https://github.com/franalma/MapsWrapper/blob/8271e3a216d826277621f8501945d83bc8d56c53/maps-wrapper/src/main/java/maps/wrapper/ExtendedMap.java#L232)) to check at runtime if the underlying map supports the desired map type and react accordingly (i.e. by hiding the UI element that switches to satellite view).
+Currently, HM lacks satellite imagery.  Therefore, requesting any of  `ExtendedMap.MAP_TYPE_HYBRID` or `ExtendedMap.MAP_TYPE_SATELLITE` via `ExtendedMap.setMapType()` will simply fallback to `ExtendedMap.MAP_TYPE_NORMAL` for HM.
 
-Requesting a map type `ExtendedMap.MAP_TYPE_HYBRID` will display on HM the equivalent of `ExtendedMap.MAP_TYPE_NORMAL` .
+Call`ExtendedMap.isMapTypeSupported()` ([go to definition](https://github.com/franalma/MapsWrapper/blob/8271e3a216d826277621f8501945d83bc8d56c53/maps-wrapper/src/main/java/maps/wrapper/ExtendedMap.java#L232)) to check at runtime if the underlying GM or HM map supports the desired map type.
