@@ -31,18 +31,25 @@ public enum MapResolverStrategy {
 
     static Fragment useRequiredMapFragment(MapResolverStrategy strategy, Context context)
             throws MapResolverException {
+        boolean hasGMS = ApiAvailability.isGoogleAvailable(context);
+        boolean hasHMS = ApiAvailability.isHuaweiAvailable(context);
+
         switch (strategy) {
             case FORCE_GOOGLE:
-                return getGoogleFragment();
+                if (hasGMS) return getGoogleFragment();
+                break;
             case FORCE_HUAWEI:
-                return getHuaweiFragment(context);
+                if (hasHMS) return getHuaweiFragment(context);
+                break;
             case GOOGLE_THEN_HUAWEI: {
-                if (ApiAvailability.isGoogleAvailable(context)) return getGoogleFragment();
-                if (ApiAvailability.isHuaweiAvailable(context)) return getHuaweiFragment(context);
+                if (hasGMS) return getGoogleFragment();
+                if (hasHMS) return getHuaweiFragment(context);
+                break;
             }
             case HUAWEI_THEN_GOOGLE: {
-                if (ApiAvailability.isHuaweiAvailable(context)) return getHuaweiFragment(context);
-                if (ApiAvailability.isGoogleAvailable(context)) return getGoogleFragment();
+                if (hasHMS) return getHuaweiFragment(context);
+                if (hasGMS) return getGoogleFragment();
+                break;
             }
         }
         throw new MapResolverException();
@@ -51,22 +58,25 @@ public enum MapResolverStrategy {
 
     static FrameLayout useRequiredMapView(Context context, AttributeSet attr, int defStyleAttr, MapResolverStrategy strategy)
             throws MapResolverException {
+        boolean hasGMS = ApiAvailability.isGoogleAvailable(context);
+        boolean hasHMS = ApiAvailability.isHuaweiAvailable(context);
+
         switch (strategy) {
             case FORCE_GOOGLE:
-                return getGoogleMapView(context, attr, defStyleAttr);
+                if (hasGMS) return getGoogleMapView(context, attr, defStyleAttr);
+                break;
             case FORCE_HUAWEI:
-                return getHuaweiMapView(context, attr, defStyleAttr);
+                if (hasHMS) return getHuaweiMapView(context, attr, defStyleAttr);
+                break;
             case GOOGLE_THEN_HUAWEI: {
-                if (ApiAvailability.isGoogleAvailable(context))
-                    return getGoogleMapView(context, attr, defStyleAttr);
-                if (ApiAvailability.isHuaweiAvailable(context))
-                    return getHuaweiMapView(context, attr, defStyleAttr);
+                if (hasGMS) return getGoogleMapView(context, attr, defStyleAttr);
+                if (hasHMS) return getHuaweiMapView(context, attr, defStyleAttr);
+                break;
             }
             case HUAWEI_THEN_GOOGLE: {
-                if (ApiAvailability.isHuaweiAvailable(context))
-                    return getHuaweiMapView(context, attr, defStyleAttr);
-                if (ApiAvailability.isGoogleAvailable(context))
-                    return getGoogleMapView(context, attr, defStyleAttr);
+                if (hasHMS) return getHuaweiMapView(context, attr, defStyleAttr);
+                if (hasGMS) return getGoogleMapView(context, attr, defStyleAttr);
+                break;
             }
         }
         throw new MapResolverException();
