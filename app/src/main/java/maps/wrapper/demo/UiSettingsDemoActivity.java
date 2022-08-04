@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -128,7 +128,7 @@ public class UiSettingsDemoActivity extends AppCompatActivity implements OnMapRe
         // dot/chevron on the map). The my location button will never appear if the my location
         // layer is not enabled.
         // First verify that the location permission has been granted.
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mUiSettings.setMyLocationButtonEnabled(mMyLocationButtonCheckbox.isChecked());
         } else {
@@ -145,14 +145,14 @@ public class UiSettingsDemoActivity extends AppCompatActivity implements OnMapRe
         // Enables/disables the my location layer (i.e., the dot/chevron on the map). If enabled, it
         // will also cause the my location button to show (if it is enabled); if disabled, the my
         // location button will never show.
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(mMyLocationLayerCheckbox.isChecked());
         } else {
             // Uncheck the box and request missing location permission.
             mMyLocationLayerCheckbox.setChecked(false);
             PermissionUtils.requestPermission(this, LOCATION_LAYER_PERMISSION_REQUEST_CODE,
-                    Manifest.permission.ACCESS_FINE_LOCATION, false);
+                    Manifest.permission.ACCESS_COARSE_LOCATION, false);
         }
     }
 
@@ -194,7 +194,7 @@ public class UiSettingsDemoActivity extends AppCompatActivity implements OnMapRe
      */
     public void requestLocationPermission(int requestCode) {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)) {
+                Manifest.permission.ACCESS_COARSE_LOCATION)) {
             // Display a dialog with rationale.
             PermissionUtils.RationaleDialog
                     .newInstance(requestCode, false).show(
@@ -202,7 +202,7 @@ public class UiSettingsDemoActivity extends AppCompatActivity implements OnMapRe
         } else {
             // Location permission has not been granted yet, request it.
             PermissionUtils.requestPermission(this, requestCode,
-                    Manifest.permission.ACCESS_FINE_LOCATION, false);
+                    Manifest.permission.ACCESS_COARSE_LOCATION, false);
         }
     }
 
@@ -212,7 +212,7 @@ public class UiSettingsDemoActivity extends AppCompatActivity implements OnMapRe
         if (requestCode == MY_LOCATION_PERMISSION_REQUEST_CODE) {
             // Enable the My Location button if the permission has been granted.
             if (PermissionUtils.isPermissionGranted(permissions, grantResults,
-                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    Manifest.permission.ACCESS_COARSE_LOCATION)) {
                 mUiSettings.setMyLocationButtonEnabled(true);
                 mMyLocationButtonCheckbox.setChecked(true);
             } else {
@@ -222,7 +222,7 @@ public class UiSettingsDemoActivity extends AppCompatActivity implements OnMapRe
         } else if (requestCode == LOCATION_LAYER_PERMISSION_REQUEST_CODE) {
             // Enable the My Location layer if the permission has been granted.
             if (PermissionUtils.isPermissionGranted(permissions, grantResults,
-                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    Manifest.permission.ACCESS_COARSE_LOCATION)) {
                 mMap.setMyLocationEnabled(true);
                 mMyLocationLayerCheckbox.setChecked(true);
             } else {

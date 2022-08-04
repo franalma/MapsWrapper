@@ -1,4 +1,4 @@
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.annotations.SerializedName;

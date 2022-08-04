@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "maps.wrapper.test.app"
+        applicationId "maps.wrapper.demo"
         minSdkVersion 19
         targetSdkVersion 32
         versionCode 1

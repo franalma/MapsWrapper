@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -139,14 +139,14 @@ public class LayersDemoActivity extends AppCompatActivity
         }
 
         // Enable the location layer. Request the location permission if needed.
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
         } else {
             // Uncheck the box until the layer has been enabled and request missing permission.
             mMyLocationCheckbox.setChecked(false);
             PermissionUtils.requestPermission(this, LOCATION_PERMISSION_REQUEST_CODE,
-                    Manifest.permission.ACCESS_FINE_LOCATION, false);
+                    Manifest.permission.ACCESS_COARSE_LOCATION, false);
         }
     }
 
@@ -157,7 +157,7 @@ public class LayersDemoActivity extends AppCompatActivity
         }
 
         if (PermissionUtils.isPermissionGranted(permissions, results,
-                Manifest.permission.ACCESS_FINE_LOCATION)) {
+                Manifest.permission.ACCESS_COARSE_LOCATION)) {
             mMap.setMyLocationEnabled(true);
             mMyLocationCheckbox.setChecked(true);
         } else {

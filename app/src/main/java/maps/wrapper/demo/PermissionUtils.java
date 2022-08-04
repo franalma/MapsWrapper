@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -159,7 +159,7 @@ public abstract class PermissionUtils {
                         public void onClick(DialogInterface dialog, int which) {
                             // After click on Ok, request the permission.
                             ActivityCompat.requestPermissions(getActivity(),
-                                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                                    new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                                     requestCode);
                             // Do not finish the Activity while requesting permission.
                             mFinishActivity = false;

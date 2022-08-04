@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 

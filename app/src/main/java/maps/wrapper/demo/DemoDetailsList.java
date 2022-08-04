@@ -13,7 +13,7 @@
 // limitations under the License.
 
 
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 /**
  * A list of all the demos we have available.

@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package maps.wrapper.test.app;
+package maps.wrapper.demo;
 
 import android.os.Bundle;
 import android.os.Handler;
