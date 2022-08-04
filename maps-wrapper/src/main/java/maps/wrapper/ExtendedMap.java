@@ -271,7 +271,6 @@ public class ExtendedMap {
             switch (mapType) {
                 case ExtendedMap.MAP_TYPE_HYBRID:
                 case ExtendedMap.MAP_TYPE_SATELLITE:
-                case ExtendedMap.MAP_TYPE_TERRAIN:
                     return false;
                 default:
                     return true;
@@ -283,8 +282,8 @@ public class ExtendedMap {
 
     public void setMapType(int mapType) {
         if (isHuawei()) {
-            if (mapType == ExtendedMap.MAP_TYPE_HYBRID) {
-                // Hybrid not yet supported, instead of an empty map, just show the normal layer
+            if (!isMapTypeSupported(mapType)) {
+                // Show the normal layer for the unsupported layers.
                 huaweiMap.setMapType(HuaweiMap.MAP_TYPE_NORMAL);
             } else {
                 huaweiMap.setMapType(mapType);
